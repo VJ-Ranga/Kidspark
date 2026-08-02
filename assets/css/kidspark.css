@@ -254,22 +254,6 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ---------- Skip link ---------- */
 
-.ks-skip {
-  position: absolute;
-  top: -48px;
-  left: var(--ks-s3);
-  z-index: 100;
-  background: var(--ks-indigo);
-  color: var(--ks-white);
-  padding: var(--ks-s3) var(--ks-s5);
-  border-radius: var(--ks-s2);
-  font-weight: 700;
-  transition: top .2s var(--ks-ease);
-}
-.ks-skip:focus {
-  top: var(--ks-s3);
-}
-
 /* ---------- Header ---------- */
 
 .ks-header {
