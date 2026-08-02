@@ -81,7 +81,7 @@ export function categoryCard(category) {
 export function articleCard(article) {
   return `
 <article class="ks-card">
-  <a href="/blog/${escapeHtml(article.slug)}">
+  <a href="blog-post.html?slug=${escapeHtml(article.slug)}">
     <div class="ks-card__media">
       <img src="${escapeHtml(article.image)}"
            srcset="${escapeHtml(srcsetFor(article.image, 800))}"
@@ -93,7 +93,7 @@ export function articleCard(article) {
   <div class="ks-card__body">
     <span class="ks-badge">${escapeHtml(article.category)}</span>
     <h3 class="ks-card__title">
-      <a href="/blog/${escapeHtml(article.slug)}">${escapeHtml(article.title)}</a>
+      <a href="blog-post.html?slug=${escapeHtml(article.slug)}">${escapeHtml(article.title)}</a>
     </h3>
     <p class="ks-card__blurb">${escapeHtml(article.excerpt)}</p>
     <span class="ks-card__foot">${escapeHtml(article.readMinutes)} min read</span>

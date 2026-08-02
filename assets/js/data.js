@@ -75,26 +75,53 @@ export const KS_PRODUCTS = [
     merchant:{ name:'Amazon', url:'https://www.amazon.com/' }, category:'stem', badge:null, featured:false, deal:false }
 ];
 
+/* TODO(client): body paragraphs below are placeholder editorial copy written
+   to give the detail pages real content to show. Replace with the real
+   articles before launch. */
 export const KS_ARTICLES = [
   { slug:'stem-toys-that-build-focus', title:'Play That Actually Builds Focus',
     excerpt:'Not every "educational" toy earns the label. Here is what to look for, and what to skip.',
     image:'assets/images/blog/a1-stem-play.jpg', alt:'Child concentrating on a building toy',
-    category:'STEM & Learning', categoryId:'stem', readMinutes:8, featured:true },
+    category:'STEM & Learning', categoryId:'stem', readMinutes:8, featured:true,
+    body:[
+      'Not every toy labelled "educational" earns the label. We spent a term watching which ones held attention past the first afternoon, and which went quietly into the cupboard.',
+      'The pattern was consistent: toys with fewer built-in outcomes held attention longer than toys with more of them. A set of blocks can become a tower, a wall, a ramp or a sorting game. A toy that only does one thing, however cleverly, gets solved once and set aside.',
+      'Look for open-ended construction pieces, materials that can be combined in more than one way, and anything that survives being used "wrong." A stacking toy used as a drum is still doing its job.',
+      'What to skip: anything that narrates its own instructions out loud, anything with a single correct outcome, and anything that needs batteries to be interesting. Batteries usually mean the toy is doing the playing, not the child.'
+    ] },
 
   { slug:'ten-minutes-a-day-reading', title:'Ten Minutes a Day: Reading Habits That Stick',
     excerpt:'A small, repeatable routine beats an ambitious one you abandon by Thursday.',
     image:'assets/images/blog/a2-reading.jpg', alt:'Parent reading a picture book with a child',
-    category:'Books & Stories', categoryId:'books', readMinutes:6, featured:false },
+    category:'Books & Stories', categoryId:'books', readMinutes:6, featured:false,
+    body:[
+      'A small, repeatable routine beats an ambitious one you abandon by Thursday. Ten minutes, same time, same chair, most days, does more than an hour once a fortnight.',
+      'Pick a time that already exists in the day rather than inventing a new one. After bath and before lights-out works for most households because nothing else is competing for it.',
+      'Let your child choose the book, even if it is the same one every night for three weeks. Repetition is how the language sticks, and boredom is a you problem, not a them problem.',
+      'If ten minutes feels impossible some nights, five is still the routine. The habit survives on consistency, not duration.'
+    ] },
 
   { slug:'rainy-afternoon-rescue', title:'Rainy Afternoon Rescue: 12 Indoor Activities',
     excerpt:'Twelve things to do with what is already in your kitchen drawer.',
     image:'assets/images/blog/a3-indoor-craft.jpg', alt:'Child making a craft project indoors',
-    category:'Art & Craft', categoryId:'art', readMinutes:5, featured:false },
+    category:'Art & Craft', categoryId:'art', readMinutes:5, featured:false,
+    body:[
+      'Twelve things to do with what is already in your kitchen drawer, for the afternoons when going outside is not an option.',
+      'Masking tape roads across the living room floor, a laundry basket obstacle course, a "find five blue things" scavenger hunt, sock puppets from the odd-sock pile, a pillow fort with a torch for reading inside it.',
+      'Pasta necklaces, a washing-up bowl of water and cups for pouring practice, a cardboard box turned into anything at all, shadow puppets against a lamp, a simple obstacle course of cushions to step over.',
+      'None of these need buying anything. The point is not the activity itself, it is having a short list ready before the whining starts.'
+    ] },
 
   { slug:'sleep-snacks-and-sanity', title:'Sleep, Snacks and Sanity',
     excerpt:'A toddler routine built for real days, not the ones in the parenting books.',
     image:'assets/images/blog/a4-routine.jpg', alt:'Toddler eating calmly at a small table',
-    category:'Baby Essentials', categoryId:'baby', readMinutes:7, featured:false }
+    category:'Baby Essentials', categoryId:'baby', readMinutes:7, featured:false,
+    body:[
+      'A toddler routine built for real days, not the ones in the parenting books where nobody is ever late for anything.',
+      'The three anchors that actually matter are a consistent wake time, a predictable pattern before naps, and a wind-down before bed that does not depend on a specific location. If the wind-down only works in one room, it stops working the day you are somewhere else.',
+      'Snacks on a schedule save more arguments than snacks on demand, not because grazing is wrong, but because a toddler who knows food is coming at a predictable time asks for it less in between.',
+      'None of this needs to be rigid. The goal is a shape to the day your child can predict, not a timetable you defend to the minute.'
+    ] }
 ];
 
 /* TODO(client): PLACEHOLDER testimonials — written copy, not real customers.

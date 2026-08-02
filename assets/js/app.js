@@ -223,12 +223,66 @@ function initContact() {
   });
 }
 
+/* ---------- article detail ---------- */
+
+function initArticle() {
+  const root = document.getElementById('ks-post');
+  if (!root) return;
+
+  const slug = new URLSearchParams(location.search).get('slug');
+  const article = KS_ARTICLES.find(a => a.slug === slug);
+
+  if (!article) {
+    root.innerHTML = `
+      <div class="ks-wrap ks-post__notfound">
+        <h1>We couldn't find that article</h1>
+        <p>It may have moved, or the link may be out of date.</p>
+        <a class="ks-btn ks-btn--primary" href="blog.html">Back to the blog</a>
+      </div>`;
+    return;
+  }
+
+  document.title = `${article.title} — KidSpark at Home`;
+  const desc = document.getElementById('ks-post-desc');
+  if (desc) desc.setAttribute('content', article.excerpt);
+
+  const paragraphs = (article.body && article.body.length ? article.body : [article.excerpt])
+    .map(p => `<p>${escapeHtml(p)}</p>`).join('');
+
+  root.innerHTML = `
+    <div class="ks-post__hero">
+      <div class="ks-wrap">
+        <a class="ks-post__crumb" href="blog.html">&larr; All articles</a>
+        <div class="ks-post__meta">
+          <span class="ks-badge">${escapeHtml(article.category)}</span>
+          <span class="ks-badge ks-badge--merchant">${escapeHtml(article.readMinutes)} min read</span>
+        </div>
+        <h1 class="ks-post__title">${escapeHtml(article.title)}</h1>
+      </div>
+      <div class="ks-wrap">
+        <figure class="ks-post__figure">
+          <img src="${escapeHtml(article.image)}" alt="${escapeHtml(article.alt)}"
+               width="1200" height="600" fetchpriority="high">
+        </figure>
+      </div>
+    </div>
+    <div class="ks-wrap ks-post__body">${paragraphs}</div>`;
+
+  const related = filterProducts(KS_PRODUCTS, { filter: p => p.category === article.categoryId, limit: 3 });
+  if (related.length) {
+    const wrap = document.getElementById('ks-post-related-wrap');
+    mount('ks-post-related', related, p => productCard(p, KS_CURRENCY), '');
+    if (wrap) wrap.hidden = false;
+  }
+}
+
 /* ---------- boot ---------- */
 
 function init() {
   initChrome();
   initNewsletter();
   initHome();
+  initArticle();
   initShop();
   initBlog();
   initContact();

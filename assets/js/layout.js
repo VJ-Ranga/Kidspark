@@ -66,6 +66,7 @@ export function footerHtml() {
       <a href="contact.html">Contact</a>
       <a href="disclosure.html">Affiliate disclosure</a>
       <a href="privacy.html">Privacy policy</a>
+      <a href="terms.html">Terms of use</a>
     </div>
   </div>
   <div class="ks-footer__base">

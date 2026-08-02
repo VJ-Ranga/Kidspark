@@ -100,7 +100,7 @@ test('articleCard escapes the title and links to the slug', () => {
   const html = articleCard({ slug: 'my-post', title: '<b>Hi</b>', excerpt: 'x',
     image: 'i.jpg', alt: 'a', category: 'Play', readMinutes: 6 });
   assert.ok(html.includes('&lt;b&gt;Hi&lt;/b&gt;'));
-  assert.ok(html.includes('/blog/my-post'));
+  assert.ok(html.includes('blog-post.html?slug=my-post'));
 });
 
 test('testimonialCard escapes the quote', () => {

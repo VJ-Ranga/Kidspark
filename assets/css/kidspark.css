@@ -657,3 +657,24 @@ img { max-width: 100%; height: auto; display: block; }
 @media (max-width: 600px) {
   .ks-404__links > .ks-btn { width: 100%; }
 }
+
+/* ---------- Article detail page ---------- */
+
+.ks-post__hero {
+  background: linear-gradient(165deg, var(--ks-cream) 0%, var(--ks-amber) 100%);
+  padding: var(--ks-s7) 0 0;
+}
+.ks-post__crumb { font-size: var(--ks-text-small); font-weight: 700; color: var(--ks-indigo); }
+.ks-post__crumb:hover { color: var(--ks-indigo-dark); }
+.ks-post__meta { display: flex; gap: var(--ks-s3); align-items: center; margin: var(--ks-s4) 0; }
+.ks-post__title { margin: var(--ks-s3) 0 var(--ks-s5); max-width: 22ch; }
+.ks-post__figure { margin: var(--ks-s6) 0 0; }
+.ks-post__figure img {
+  width: 100%; max-height: 480px; object-fit: cover;
+  border-radius: var(--ks-radius-card) var(--ks-radius-card) 0 0;
+}
+.ks-post__body { padding: var(--ks-s7) 0; }
+.ks-post__body p { max-width: 68ch; margin: 0 auto var(--ks-s5); font-size: 19px; }
+.ks-post__notfound { text-align: center; padding: var(--ks-s9) 0; }
+
+/* ---------- Terms page reuses .ks-prose from About/Privacy ---------- */
