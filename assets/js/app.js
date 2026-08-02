@@ -20,8 +20,6 @@ function mount(id, items, renderItem, emptyMessage) {
   }
 }
 
-const rowCard = (fn) => (item) => fn(item).replace('class="ks-card"', 'class="ks-card ks-card--row"');
-
 /* ---------- chrome ---------- */
 
 function initChrome() {
@@ -87,12 +85,12 @@ function initHome() {
 
   mount('ks-picks',
     filterProducts(KS_PRODUCTS, { filter: p => p.featured, limit: 3 }),
-    rowCard(p => productCard(p, KS_CURRENCY)),
+    p => productCard(p, KS_CURRENCY),
     'Our picks are being updated.');
 
   mount('ks-reads',
     KS_ARTICLES.slice(0, 3),
-    rowCard(articleCard),
+    articleCard,
     'New articles are coming soon.');
 
   mount('ks-deals',
