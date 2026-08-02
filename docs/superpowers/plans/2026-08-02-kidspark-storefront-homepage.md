@@ -100,6 +100,10 @@ mkdir -p /var/www/KID/assets/images/{hero,products,blog,testimonials}
   --ks-body:  #5B6373;
   --ks-muted: #7B8394;
 
+  /* Functional — not brand, not retail */
+  --ks-error:    #B3261E;  /* form validation only; 4.5:1 on white */
+  --ks-whatsapp: #25D366;  /* WhatsApp's own brand green, fixed by them */
+
   /* Type */
   --ks-font-head: 'Baloo 2', system-ui, sans-serif;
   --ks-font-body: 'Nunito', system-ui, sans-serif;
@@ -775,12 +779,12 @@ Expected: all 17 tests PASS, exit code 0.
 export const KS_CURRENCY = 'USD';   // TODO(client): confirm USD or LKR
 
 const ICON = {
-  toys:    '<svg viewBox="0 0 24 24" fill="none" stroke="#21263A" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>',
-  books:   '<svg viewBox="0 0 24 24" fill="none" stroke="#21263A" stroke-width="1.8" stroke-linecap="round"><path d="M4 5v14l8-2 8 2V5l-8 2z"/><path d="M12 7v12"/></svg>',
-  stem:    '<svg viewBox="0 0 24 24" fill="none" stroke="#21263A" stroke-width="1.8" stroke-linecap="round"><path d="M9 3v6l-5 9a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-5-9V3"/><path d="M8 3h8"/></svg>',
-  art:     '<svg viewBox="0 0 24 24" fill="none" stroke="#21263A" stroke-width="1.8" stroke-linecap="round"><path d="M12 3a9 9 0 1 0 0 18c1 0 2-1 2-2s-1-2 0-3 3 0 4-1a9 9 0 0 0-6-12z"/><circle cx="8" cy="10" r="1"/><circle cx="12" cy="7" r="1"/></svg>',
-  outdoor: '<svg viewBox="0 0 24 24" fill="none" stroke="#21263A" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="7" r="3"/><path d="M6 21l3-7h6l3 7M9 14v-3M15 14v-3"/></svg>',
-  baby:    '<svg viewBox="0 0 24 24" fill="none" stroke="#21263A" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M9 15c1 1 5 1 6 0"/></svg>'
+  toys:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>',
+  books:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 5v14l8-2 8 2V5l-8 2z"/><path d="M12 7v12"/></svg>',
+  stem:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 3v6l-5 9a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-5-9V3"/><path d="M8 3h8"/></svg>',
+  art:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3a9 9 0 1 0 0 18c1 0 2-1 2-2s-1-2 0-3 3 0 4-1a9 9 0 0 0-6-12z"/><circle cx="8" cy="10" r="1"/><circle cx="12" cy="7" r="1"/></svg>',
+  outdoor: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="7" r="3"/><path d="M6 21l3-7h6l3 7M9 14v-3M15 14v-3"/></svg>',
+  baby:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M9 15c1 1 5 1 6 0"/></svg>'
 };
 
 export const KS_CATEGORIES = [
@@ -1095,7 +1099,7 @@ Write CSS for these classes using only tokens:
 - `.ks-footer` — `background: var(--ks-sand)`, top border, padding `--ks-s8` top / `--ks-s6` bottom.
 - `.ks-footer__grid` — `grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: var(--ks-s6);` Each column's `h4` is Baloo 2 17px with `margin-bottom: var(--ks-s3)`; each `<a>` is `display: block; padding: var(--ks-s2) 0; font-size: var(--ks-text-small);` and hovers to `--ks-indigo`.
 - `.ks-footer__base` — top border, `margin-top: var(--ks-s6)`, `padding-top: var(--ks-s5)`, `--ks-text-small`, `--ks-muted`.
-- `.ks-wa` — fixed bottom-right 28px, 56px circle, `background: #25D366`, flex-centered, `box-shadow: 0 6px 20px rgba(37,211,102,.45)`, scales to 1.08 on hover.
+- `.ks-wa` — fixed bottom-right 28px, 56px circle, `background: var(--ks-whatsapp)`, flex-centered, `box-shadow: 0 6px 20px rgba(37,211,102,.45)`, scales to 1.08 on hover.
 
 Then the responsive rules:
 
@@ -1536,7 +1540,7 @@ function initNewsletter() {
 }
 .ks-news__input:focus { border-color: var(--ks-indigo); outline: none; }
 .ks-news__note { flex-basis: 100%; margin: 0; font-size: var(--ks-text-small); }
-.ks-news__note[data-state="error"]   { color: #B3261E; }
+.ks-news__note[data-state="error"]   { color: var(--ks-error); }
 .ks-news__note[data-state="pending"] { color: var(--ks-body); }
 
 @media (max-width: 860px) {
@@ -1549,7 +1553,7 @@ function initNewsletter() {
 }
 ```
 
-Note: `#B3261E` is an accessible error red and is the one deliberate hardcoded color, used only for form validation text. It is not a retail/sale color.
+Note: `--ks-error` is used only for form validation text. It is a functional color, never a retail/sale color.
 
 - [ ] **Step 4: Verify in the browser**
 
