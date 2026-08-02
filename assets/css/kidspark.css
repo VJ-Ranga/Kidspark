@@ -165,7 +165,16 @@ img { max-width: 100%; height: auto; display: block; }
 .ks-card__media { position: relative; aspect-ratio: 4 / 3; background: var(--ks-sand); }
 .ks-card__media img { width: 100%; height: 100%; object-fit: cover; }
 .ks-card__body { padding: var(--ks-s5); display: flex; flex-direction: column; gap: var(--ks-s3); flex: 1; }
-.ks-card__title { font-size: var(--ks-text-h3); }
+/* Reserve two lines so a one-line title and a two-line title in the same
+   row still leave price/badge/button aligned underneath. */
+.ks-card__title {
+  font-size: var(--ks-text-h3);
+  min-height: calc(var(--ks-text-h3) * 1.2 * 2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .ks-card__blurb { font-size: var(--ks-text-small); margin: 0; }
 .ks-card__foot { margin-top: auto; display: flex; flex-direction: column; gap: var(--ks-s3); }
 
@@ -686,7 +695,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Compact card for the six-across row — same card, tighter content. */
 .ks-card--compact .ks-card__body { padding: var(--ks-s3); gap: var(--ks-s2); }
-.ks-card--compact .ks-card__title { font-size: 15px; line-height: 1.3; }
+.ks-card--compact .ks-card__title { font-size: 15px; line-height: 1.3; min-height: calc(15px * 1.3 * 2); }
 .ks-card--compact .ks-card__blurb { display: none; }
 .ks-card--compact .ks-price__now { font-size: 17px; }
 .ks-card--compact .ks-badge { font-size: 11px; padding: 2px var(--ks-s2); }

@@ -66,7 +66,7 @@ export const KS_PRODUCTS = [
 
   { id:'p9', slug:'counting-bears', title:'Counting Bears & Sorting Cups',
     image:'assets/images/products/p9-counting-bears.jpg', alt:'Colourful counting bears with sorting cups',
-    blurb:'Sorting, counting, and one very long car journey.', price:22.00, wasPrice:null,
+    blurb:'Sorting, counting, and a lifesaver on car journeys.', price:22.00, wasPrice:null,
     merchant:{ name:'Daraz', url:'https://www.daraz.lk/' }, category:'stem', badge:null, featured:false, deal:false },
 
   { id:'p10', slug:'first-science-kit', title:'My First Science Lab Kit',
