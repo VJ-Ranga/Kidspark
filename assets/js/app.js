@@ -104,7 +104,7 @@ function initHome() {
   if (guide) {
     mount('ks-guide-picks',
       filterProducts(KS_PRODUCTS, { filter: p => p.category === guide.categoryId, limit: 3 }),
-      p => productCard(p, KS_CURRENCY),
+      compactCard(p => productCard(p, KS_CURRENCY)),
       'Picks for this guide are being updated.');
   }
 
