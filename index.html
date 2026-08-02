@@ -72,12 +72,111 @@
              srcset="assets/images/hero/hero-play-400.jpg 400w, assets/images/hero/hero-play.jpg 1200w"
              sizes="(max-width: 860px) 100vw, 600px"
              alt="A mother and her toddler playing together with wooden toys on a rug"
-             width="1200" height="900" fetchpriority="high">
+             width="1200" height="800" fetchpriority="high">
       </div>
     </div>
   </section>
 
-  <!-- Tasks 5-7 fill these sections -->
+  <section class="ks-section ks-wrap" id="categories">
+    <div class="ks-section-head">
+      <div>
+        <p class="ks-section-head__eyebrow">Shop by age and interest</p>
+        <h2>What are you looking for?</h2>
+      </div>
+      <a class="ks-section-head__link" href="/shop">All categories →</a>
+    </div>
+    <div class="ks-grid ks-grid--cats" id="ks-categories"></div>
+  </section>
+
+  <section class="ks-section ks-wrap" id="featured">
+    <div class="ks-section-head">
+      <div>
+        <p class="ks-section-head__eyebrow">Tested at home</p>
+        <h2>This month's featured picks</h2>
+      </div>
+      <a class="ks-section-head__link" href="/shop">See all picks →</a>
+    </div>
+    <div class="ks-grid ks-grid--4" id="ks-featured"></div>
+  </section>
+
+  <section class="ks-section ks-wrap" id="articles">
+    <div class="ks-section-head">
+      <div>
+        <p class="ks-section-head__eyebrow">From the blog</p>
+        <h2>Ideas you can use this afternoon</h2>
+      </div>
+      <a class="ks-section-head__link" href="/blog">All articles →</a>
+    </div>
+    <div class="ks-grid ks-grid--3" id="ks-articles"></div>
+  </section>
+
+  <section class="ks-section ks-section--soft" id="deals">
+    <div class="ks-wrap">
+      <div class="ks-section-head">
+        <div>
+          <p class="ks-section-head__eyebrow">Worth a look this week</p>
+          <h2>Best value right now</h2>
+        </div>
+      </div>
+      <div class="ks-grid ks-grid--3" id="ks-deals"></div>
+    </div>
+  </section>
+
+  <section class="ks-section ks-wrap" id="guide">
+    <div class="ks-guide">
+      <article class="ks-guide__feature">
+        <p class="ks-section-head__eyebrow">Editor's guide</p>
+        <h2>Play That Actually Builds Focus</h2>
+        <p>
+          Not every toy labelled "educational" earns the label. We spent a term
+          watching which ones held attention past the first afternoon — and
+          which went quietly into the cupboard.
+        </p>
+        <p>
+          The short version: fewer moving parts, more ways to be wrong. Here is
+          what that looks like in practice, and the three sets that came out best.
+        </p>
+        <a class="ks-btn ks-btn--primary" href="/blog/stem-toys-that-build-focus">
+          Read the full guide
+        </a>
+      </article>
+      <div class="ks-guide__picks">
+        <h3>The three that won</h3>
+        <div class="ks-grid ks-grid--3" id="ks-guide-picks"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ks-section ks-section--mint" id="testimonials">
+    <div class="ks-wrap">
+      <div class="ks-section-head ks-section-head--center">
+        <div>
+          <p class="ks-section-head__eyebrow">Parent stories</p>
+          <h2>What families tell us</h2>
+        </div>
+      </div>
+      <div class="ks-grid ks-grid--3" id="ks-testimonials"></div>
+    </div>
+  </section>
+
+  <section class="ks-section ks-wrap" id="newsletter">
+    <div class="ks-news">
+      <div class="ks-news__copy">
+        <h2>One email a week. Nothing else.</h2>
+        <p>
+          A short note with what we tried, what worked, and anything genuinely
+          worth buying. Unsubscribe in one click.
+        </p>
+      </div>
+      <form class="ks-news__form" id="ks-news-form" novalidate>
+        <label class="ks-sr-only" for="ks-news-email">Your email address</label>
+        <input class="ks-news__input" id="ks-news-email" type="email" name="email"
+               placeholder="you@example.com" required autocomplete="email">
+        <button class="ks-btn ks-btn--primary" type="submit">Join free</button>
+        <p class="ks-news__note" id="ks-news-note" role="status"></p>
+      </form>
+    </div>
+  </section>
 
 </main>
 

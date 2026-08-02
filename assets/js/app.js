@@ -19,6 +19,28 @@ function mount(id, items, renderItem, emptyMessage) {
   }
 }
 
+/* No backend yet. Validate, then tell the truth about what happened —
+   never fake a success message for a signup that was not stored. */
+function initNewsletter() {
+  const form = document.getElementById('ks-news-form');
+  const input = document.getElementById('ks-news-email');
+  const note = document.getElementById('ks-news-note');
+  if (!form || !input || !note) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const value = input.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      note.textContent = 'Please enter a valid email address.';
+      note.dataset.state = 'error';
+      input.focus();
+      return;
+    }
+    note.textContent = 'Signup is not connected yet — this form goes live with the backend.';
+    note.dataset.state = 'pending';
+  });
+}
+
 function initMobileMenu() {
   const btn = document.getElementById('ks-menu-btn');
   const nav = document.getElementById('ks-mobile-nav');
@@ -41,6 +63,7 @@ function initMobileMenu() {
 
 function init() {
   initMobileMenu();
+  initNewsletter();
 
   mount('ks-categories', KS_CATEGORIES, categoryCard,
     'Categories are on their way.');
