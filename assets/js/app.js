@@ -20,6 +20,8 @@ function mount(id, items, renderItem, emptyMessage) {
   }
 }
 
+const compactCard = (fn) => (item) => fn(item).replace('class="ks-card"', 'class="ks-card ks-card--compact"');
+
 /* ---------- chrome ---------- */
 
 function initChrome() {
@@ -85,12 +87,12 @@ function initHome() {
 
   mount('ks-picks',
     filterProducts(KS_PRODUCTS, { filter: p => p.featured, limit: 3 }),
-    p => productCard(p, KS_CURRENCY),
+    compactCard(p => productCard(p, KS_CURRENCY)),
     'Our picks are being updated.');
 
   mount('ks-reads',
     KS_ARTICLES.slice(0, 3),
-    articleCard,
+    compactCard(articleCard),
     'New articles are coming soon.');
 
   mount('ks-deals',

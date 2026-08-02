@@ -678,3 +678,44 @@ img { max-width: 100%; height: auto; display: block; }
 .ks-post__notfound { text-align: center; padding: var(--ks-s9) 0; }
 
 /* ---------- Terms page reuses .ks-prose from About/Privacy ---------- */
+
+/* ============================================================
+   Row of six — picks and reads sharing one literal row.
+   Two groups of three, side by side, divided by a hairline.
+   ============================================================ */
+
+.ks-row6 {
+  display: flex;
+  align-items: stretch;
+  gap: var(--ks-s6);
+}
+.ks-row6__group { flex: 1 1 0; min-width: 0; }
+.ks-row6__label {
+  display: flex; align-items: baseline; justify-content: space-between;
+  font-family: var(--ks-font-head); font-weight: 700; font-size: 18px;
+  color: var(--ks-ink); margin: 0 0 var(--ks-s4);
+}
+.ks-row6__label a { font-family: var(--ks-font-body); font-weight: 700; font-size: var(--ks-text-small); color: var(--ks-indigo); }
+.ks-row6__label a:hover { color: var(--ks-indigo-dark); }
+.ks-row6__divider { width: 1px; background: var(--ks-border); align-self: stretch; margin-top: 40px; }
+.ks-row6__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--ks-s3); }
+
+/* Compact card for the six-across row — same card, tighter content. */
+.ks-card--compact .ks-card__body { padding: var(--ks-s3); gap: var(--ks-s2); }
+.ks-card--compact .ks-card__title { font-size: 15px; line-height: 1.3; }
+.ks-card--compact .ks-card__blurb { display: none; }
+.ks-card--compact .ks-price__now { font-size: 17px; }
+.ks-card--compact .ks-badge { font-size: 11px; padding: 2px var(--ks-s2); }
+.ks-card--compact .ks-btn { min-height: var(--ks-tap); padding: 0 var(--ks-s3); font-size: 13px; width: 100%; }
+.ks-card--compact .ks-card__foot { gap: var(--ks-s2); }
+
+@media (max-width: 1080px) {
+  .ks-row6 { flex-direction: column; gap: var(--ks-s7); }
+  .ks-row6__divider { display: none; }
+  .ks-row6__cards { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+  .ks-row6__cards { grid-template-columns: repeat(3, 1fr); gap: var(--ks-s2); }
+  .ks-card--compact .ks-card__title { font-size: 13px; }
+  .ks-card--compact .ks-btn { font-size: 11px; padding: 0 var(--ks-s2); min-height: var(--ks-tap); }
+}
