@@ -15,37 +15,7 @@
 
 <a class="ks-skip" href="#main">Skip to content</a>
 
-<header class="ks-header">
-  <div class="ks-wrap ks-header__inner">
-    <a class="ks-logo" href="/">KidSpark<span>at Home</span></a>
-
-    <nav class="ks-nav" aria-label="Main">
-      <a class="ks-nav__link" href="/shop">Shop</a>
-      <a class="ks-nav__link" href="/shop?cat=toys">Toys</a>
-      <a class="ks-nav__link" href="/shop?cat=books">Books</a>
-      <a class="ks-nav__link" href="/shop?cat=stem">Learning</a>
-      <a class="ks-nav__link" href="/blog">Blog</a>
-      <a class="ks-nav__link" href="/about">About</a>
-    </nav>
-
-    <div class="ks-header__actions">
-      <a class="ks-btn ks-btn--primary" href="#newsletter">Join free</a>
-      <button class="ks-hamburger" id="ks-menu-btn" type="button"
-              aria-expanded="false" aria-controls="ks-mobile-nav" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-
-  <nav class="ks-mobile-nav" id="ks-mobile-nav" aria-label="Mobile" hidden>
-    <a class="ks-nav__link" href="/shop">Shop</a>
-    <a class="ks-nav__link" href="/shop?cat=toys">Toys</a>
-    <a class="ks-nav__link" href="/shop?cat=books">Books</a>
-    <a class="ks-nav__link" href="/shop?cat=stem">Learning</a>
-    <a class="ks-nav__link" href="/blog">Blog</a>
-    <a class="ks-nav__link" href="/about">About</a>
-  </nav>
-</header>
+<header class="ks-header"></header>
 
 <main id="main">
 
@@ -59,12 +29,12 @@
           number that survive. No sponsored lists, no filler.
         </p>
         <div class="ks-hero__btns">
-          <a class="ks-btn ks-btn--primary" href="#featured">Browse our picks</a>
-          <a class="ks-btn ks-btn--outline" href="#articles">Read the guides</a>
+          <a class="ks-btn ks-btn--primary" href="#picks">Browse our picks</a>
+          <a class="ks-btn ks-btn--outline" href="#picks">Read the guides</a>
         </div>
         <p class="ks-hero__disclosure">
           Some links earn us a small commission. It never changes what we recommend
-          or what you pay. <a href="/disclosure">How this works</a>.
+          or what you pay. <a href="disclosure.html">How this works</a>.
         </p>
       </div>
       <div class="ks-hero__media">
@@ -83,31 +53,37 @@
         <p class="ks-section-head__eyebrow">Shop by age and interest</p>
         <h2>What are you looking for?</h2>
       </div>
-      <a class="ks-section-head__link" href="/shop">All categories →</a>
+      <a class="ks-section-head__link" href="shop.html">All categories →</a>
     </div>
     <div class="ks-grid ks-grid--cats" id="ks-categories"></div>
   </section>
 
-  <section class="ks-section ks-wrap" id="featured">
-    <div class="ks-section-head">
-      <div>
-        <p class="ks-section-head__eyebrow">Tested at home</p>
-        <h2>This month's featured picks</h2>
-      </div>
-      <a class="ks-section-head__link" href="/shop">See all picks →</a>
-    </div>
-    <div class="ks-grid ks-grid--4" id="ks-featured"></div>
-  </section>
+  <section class="ks-section ks-wrap" id="picks">
+    <div class="ks-split">
 
-  <section class="ks-section ks-wrap" id="articles">
-    <div class="ks-section-head">
-      <div>
-        <p class="ks-section-head__eyebrow">From the blog</p>
-        <h2>Ideas you can use this afternoon</h2>
+      <div class="ks-split__col">
+        <div class="ks-section-head">
+          <div>
+            <p class="ks-section-head__eyebrow">Tested at home</p>
+            <h2>Our picks</h2>
+          </div>
+          <a class="ks-section-head__link" href="shop.html">All picks &rarr;</a>
+        </div>
+        <div class="ks-split__stack" id="ks-picks"></div>
       </div>
-      <a class="ks-section-head__link" href="/blog">All articles →</a>
+
+      <div class="ks-split__col">
+        <div class="ks-section-head">
+          <div>
+            <p class="ks-section-head__eyebrow">From the blog</p>
+            <h2>Good reads</h2>
+          </div>
+          <a class="ks-section-head__link" href="blog.html">All articles &rarr;</a>
+        </div>
+        <div class="ks-split__stack" id="ks-reads"></div>
+      </div>
+
     </div>
-    <div class="ks-grid ks-grid--3" id="ks-articles"></div>
   </section>
 
   <section class="ks-section ks-section--soft" id="deals">
@@ -136,7 +112,7 @@
           The short version: fewer moving parts, more ways to be wrong. Here is
           what that looks like in practice, and the three sets that came out best.
         </p>
-        <a class="ks-btn ks-btn--primary" href="/blog/stem-toys-that-build-focus">
+        <a class="ks-btn ks-btn--primary" href="blog.html?cat=stem">
           Read the full guide
         </a>
       </article>
@@ -180,49 +156,8 @@
 
 </main>
 
-<footer class="ks-footer">
-  <div class="ks-wrap">
-    <div class="ks-footer__grid">
-      <div>
-        <a class="ks-logo" href="/">KidSpark<span>at Home</span></a>
-        <p>Practical play ideas and honest product picks for babies and toddlers.</p>
-      </div>
-      <div>
-        <h4>Shop</h4>
-        <a href="/shop?cat=toys">Toys &amp; Games</a>
-        <a href="/shop?cat=books">Books &amp; Stories</a>
-        <a href="/shop?cat=stem">STEM &amp; Learning</a>
-        <a href="/shop?cat=art">Art &amp; Craft</a>
-      </div>
-      <div>
-        <h4>Read</h4>
-        <a href="/blog">All articles</a>
-        <a href="/learning-tips">Learning tips</a>
-        <a href="/activities">Activities</a>
-        <a href="/parenting">Parenting</a>
-      </div>
-      <div>
-        <h4>KidSpark</h4>
-        <a href="/about">About us</a>
-        <a href="/contact">Contact</a>
-        <a href="/disclosure">Affiliate disclosure</a>
-        <a href="/privacy">Privacy policy</a>
-      </div>
-    </div>
-    <div class="ks-footer__base">
-      <p>
-        KidSpark at Home is a participant in affiliate programmes. We may earn a
-        commission on qualifying purchases made through links on this site, at no
-        extra cost to you.
-      </p>
-      <p>&copy; 2026 KidSpark at Home.</p>
-    </div>
-  </div>
-</footer>
+<footer class="ks-footer"></footer>
 
-<a class="ks-wa" href="https://wa.me/" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
-  <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .7.5l.9 2.1c.1.2 0 .4-.1.5l-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l2 1c.3.1.5.2.5.4.1.1.1.7-.1 1.2z"/></svg>
-</a>
 
 </body>
 </html>

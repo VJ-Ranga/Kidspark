@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — KidSpark at Home</title>
+<meta name="description" content="Send KidSpark at Home a question, suggestion or correction.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/kidspark.css">
+<script type="module" src="assets/js/app.js"></script>
+</head>
+<body>
+
+<a class="ks-skip" href="#main">Skip to content</a>
+
+<header class="ks-header"></header>
+
+<main id="main">
+
+  <section class="ks-pagehead">
+    <div class="ks-wrap">
+      <h1>Say hello</h1>
+      <p class="ks-pagehead__sub">Questions, suggestions, or a product you think we should try — we read everything.</p>
+    </div>
+  </section>
+
+  <section class="ks-section ks-wrap">
+    <form class="ks-form" id="ks-contact-form" novalidate>
+      <div class="ks-field">
+        <label for="contact-name">Your name</label>
+        <input id="contact-name" name="name" type="text" autocomplete="name" required
+               aria-describedby="contact-name-error">
+        <p class="ks-field__error" id="contact-name-error" role="alert"></p>
+      </div>
+
+      <div class="ks-field">
+        <label for="contact-email">Email address</label>
+        <input id="contact-email" name="email" type="email" autocomplete="email" required
+               aria-describedby="contact-email-error">
+        <p class="ks-field__error" id="contact-email-error" role="alert"></p>
+      </div>
+
+      <div class="ks-field">
+        <label for="contact-topic">What is this about?</label>
+        <select id="contact-topic" name="topic">
+          <option>A product suggestion</option>
+          <option>A correction</option>
+          <option>Working together</option>
+          <option>Something else</option>
+        </select>
+      </div>
+
+      <div class="ks-field">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" required
+                  aria-describedby="contact-message-error"></textarea>
+        <p class="ks-field__error" id="contact-message-error" role="alert"></p>
+      </div>
+
+      <button class="ks-btn ks-btn--primary" type="submit">Send message</button>
+      <p class="ks-form__note" id="ks-contact-note" role="status"></p>
+    </form>
+  </section>
+
+</main>
+
+<footer class="ks-footer"></footer>
+
+</body>
+</html>

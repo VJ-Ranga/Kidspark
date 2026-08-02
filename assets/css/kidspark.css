@@ -340,12 +340,20 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--ks-ink);
 }
 
-.ks-mobile-nav {
-  display: flex;
-  flex-direction: column;
-  padding: var(--ks-s4);
-  border-top: 1px solid var(--ks-border);
-  background: var(--ks-white);
+/* The [hidden] attribute must win, and the mobile nav must never exist
+   on desktop at all — otherwise it renders as a second vertical menu
+   underneath the horizontal one. */
+.ks-mobile-nav { display: none; }
+.ks-mobile-nav[hidden] { display: none !important; }
+
+@media (max-width: 860px) {
+  .ks-mobile-nav:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+    padding: var(--ks-s4);
+    border-top: 1px solid var(--ks-border);
+    background: var(--ks-white);
+  }
 }
 .ks-mobile-nav .ks-nav__link {
   display: flex;
@@ -558,4 +566,139 @@ img { max-width: 100%; height: auto; display: block; }
   .ks-news__form { width: 100%; }
   .ks-news__input { width: 100%; min-width: 0; }
   .ks-news__form .ks-btn { width: 100%; }
+}
+
+/* ============================================================
+   Split showcase — products one side, blog the other
+   Cards run full column width so they breathe.
+   ============================================================ */
+
+.ks-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--ks-s8);
+  align-items: start;
+}
+.ks-split__col { min-width: 0; }
+.ks-split__stack { display: flex; flex-direction: column; gap: var(--ks-s5); }
+
+/* Horizontal card: thumbnail left, room to breathe right. */
+.ks-card--row {
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  gap: var(--ks-s5);
+  align-items: stretch;
+  padding: var(--ks-s4);
+  min-height: 184px;
+}
+.ks-card--row:hover { transform: translateY(-2px); }
+.ks-card--row .ks-card__media {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--ks-radius-img);
+  overflow: hidden;
+  height: 100%;
+}
+.ks-card--row .ks-card__body {
+  padding: var(--ks-s3) var(--ks-s4) var(--ks-s3) 0;
+  gap: var(--ks-s3);
+  justify-content: center;
+}
+.ks-card--row .ks-card__title { font-size: 20px; line-height: 1.25; }
+
+/* Two lines of blurb, never more — keeps every card the same height. */
+.ks-card__blurb {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ks-card--row .ks-card__foot { flex-direction: row; align-items: center; gap: var(--ks-s4); flex-wrap: wrap; }
+.ks-card--row .ks-btn { padding: var(--ks-s2) var(--ks-s4); min-height: 40px; font-size: var(--ks-text-small); }
+
+/* ---------- Page header (inner pages) ---------- */
+
+.ks-pagehead {
+  background: linear-gradient(165deg, var(--ks-cream) 0%, var(--ks-amber) 100%);
+  padding: var(--ks-s8) 0;
+  text-align: center;
+}
+.ks-pagehead__sub { max-width: 56ch; margin: var(--ks-s4) auto 0; font-size: 19px; }
+
+/* ---------- Filter chips (shop / blog) ---------- */
+
+.ks-chips { display: flex; flex-wrap: wrap; gap: var(--ks-s3); margin-bottom: var(--ks-s7); }
+.ks-chip {
+  min-height: var(--ks-tap);
+  padding: var(--ks-s2) var(--ks-s5);
+  border-radius: var(--ks-radius-pill);
+  border: 2px solid var(--ks-border);
+  background: var(--ks-white);
+  color: var(--ks-ink);
+  font-family: var(--ks-font-body);
+  font-size: var(--ks-text-small);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color .2s var(--ks-ease), border-color .2s var(--ks-ease), color .2s var(--ks-ease);
+}
+.ks-chip:hover { border-color: var(--ks-indigo); color: var(--ks-indigo); }
+.ks-chip[aria-pressed="true"] { background: var(--ks-indigo); border-color: var(--ks-indigo); color: var(--ks-white); }
+.ks-count { color: var(--ks-muted); font-size: var(--ks-text-small); margin-bottom: var(--ks-s5); }
+
+/* ---------- Prose (about / privacy / disclosure) ---------- */
+
+.ks-prose { max-width: 68ch; margin: 0 auto; }
+.ks-prose h2 { margin-top: var(--ks-s7); }
+.ks-prose h3 { margin-top: var(--ks-s6); }
+.ks-prose p, .ks-prose li { font-size: var(--ks-text-body); }
+.ks-prose ul { padding-left: var(--ks-s5); }
+.ks-prose li { margin-bottom: var(--ks-s2); }
+
+/* ---------- Contact form ---------- */
+
+.ks-form { max-width: 560px; display: flex; flex-direction: column; gap: var(--ks-s5); }
+.ks-field { display: flex; flex-direction: column; gap: var(--ks-s2); }
+.ks-field > label { font-weight: 700; color: var(--ks-ink); font-size: var(--ks-text-small); }
+.ks-field input, .ks-field textarea, .ks-field select {
+  min-height: var(--ks-tap);
+  padding: var(--ks-s3) var(--ks-s4);
+  font-family: var(--ks-font-body);
+  font-size: var(--ks-text-body);
+  color: var(--ks-ink);
+  background: var(--ks-white);
+  border: 2px solid var(--ks-border);
+  border-radius: var(--ks-radius-img);
+}
+.ks-field textarea { min-height: 148px; resize: vertical; }
+.ks-field input:focus, .ks-field textarea:focus, .ks-field select:focus {
+  border-color: var(--ks-indigo); outline: none;
+}
+.ks-field__error { color: var(--ks-error); font-size: var(--ks-text-small); min-height: 22px; }
+.ks-form__note { font-size: var(--ks-text-small); }
+.ks-form__note[data-state="error"] { color: var(--ks-error); }
+.ks-form__note[data-state="ok"] { color: var(--ks-ink); font-weight: 700; }
+
+/* ---------- 404 ---------- */
+
+.ks-404 { text-align: center; padding: var(--ks-s9) 0; }
+.ks-404__code {
+  font-family: var(--ks-font-head);
+  font-size: clamp(88px, 18vw, 180px);
+  font-weight: 800;
+  line-height: .9;
+  color: var(--ks-indigo);
+  margin: 0;
+}
+.ks-404__sub { max-width: 48ch; margin: var(--ks-s5) auto var(--ks-s6); font-size: 19px; }
+.ks-404__links { display: flex; gap: var(--ks-s3); justify-content: center; flex-wrap: wrap; }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1080px) {
+  .ks-split { grid-template-columns: 1fr; gap: var(--ks-s8); }
+}
+@media (max-width: 600px) {
+  .ks-card--row { grid-template-columns: 108px 1fr; gap: var(--ks-s4); min-height: 0; }
+  .ks-card--row .ks-card__title { font-size: 18px; }
+  .ks-card--row .ks-card__body { padding: var(--ks-s2) var(--ks-s2) var(--ks-s2) 0; }
+  .ks-404__links > .ks-btn { width: 100%; }
 }

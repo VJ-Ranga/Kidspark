@@ -1,11 +1,12 @@
 import { KS_CURRENCY, KS_CATEGORIES, KS_PRODUCTS, KS_ARTICLES, KS_TESTIMONIALS } from './data.js';
 import {
   filterProducts, productCard, categoryCard,
-  articleCard, testimonialCard, emptyState
+  articleCard, testimonialCard, emptyState, escapeHtml
 } from './render.js';
+import { headerHtml, footerHtml, whatsappHtml } from './layout.js';
 
-/* Mount rendered HTML into an element, with an empty state and a guard so one
-   failing section cannot stop the others rendering. */
+/* ---------- generic mounting ---------- */
+
 function mount(id, items, renderItem, emptyMessage) {
   const el = document.getElementById(id);
   if (!el) return;
@@ -19,26 +20,20 @@ function mount(id, items, renderItem, emptyMessage) {
   }
 }
 
-/* No backend yet. Validate, then tell the truth about what happened —
-   never fake a success message for a signup that was not stored. */
-function initNewsletter() {
-  const form = document.getElementById('ks-news-form');
-  const input = document.getElementById('ks-news-email');
-  const note = document.getElementById('ks-news-note');
-  if (!form || !input || !note) return;
+const rowCard = (fn) => (item) => fn(item).replace('class="ks-card"', 'class="ks-card ks-card--row"');
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const value = input.value.trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-      note.textContent = 'Please enter a valid email address.';
-      note.dataset.state = 'error';
-      input.focus();
-      return;
-    }
-    note.textContent = 'Signup is not connected yet — this form goes live with the backend.';
-    note.dataset.state = 'pending';
-  });
+/* ---------- chrome ---------- */
+
+function initChrome() {
+  const active = (location.pathname.split('/').pop() || 'index.html');
+  const header = document.querySelector('.ks-header');
+  const footer = document.querySelector('.ks-footer');
+  if (header) header.innerHTML = headerHtml(active);
+  if (footer) footer.innerHTML = footerHtml();
+  if (!document.querySelector('.ks-wa')) {
+    document.body.insertAdjacentHTML('beforeend', whatsappHtml());
+  }
+  initMobileMenu();
 }
 
 function initMobileMenu() {
@@ -61,27 +56,49 @@ function initMobileMenu() {
   });
 }
 
-function init() {
-  initMobileMenu();
-  initNewsletter();
+/* ---------- newsletter (no backend yet — say so honestly) ---------- */
 
-  mount('ks-categories', KS_CATEGORIES, categoryCard,
-    'Categories are on their way.');
+function initNewsletter() {
+  const form = document.getElementById('ks-news-form');
+  const input = document.getElementById('ks-news-email');
+  const note = document.getElementById('ks-news-note');
+  if (!form || !input || !note) return;
 
-  mount('ks-featured',
-    filterProducts(KS_PRODUCTS, { filter: p => p.featured, limit: 4 }),
-    p => productCard(p, KS_CURRENCY),
-    'Our featured picks are being updated.');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const value = input.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      note.textContent = 'Enter a valid email address.';
+      note.dataset.state = 'error';
+      input.focus();
+      return;
+    }
+    note.textContent = 'Signup is not connected yet — this form goes live with the backend.';
+    note.dataset.state = 'pending';
+  });
+}
+
+/* ---------- home ---------- */
+
+function initHome() {
+  if (!document.getElementById('ks-categories')) return;
+
+  mount('ks-categories', KS_CATEGORIES, categoryCard, 'Categories are on their way.');
+
+  mount('ks-picks',
+    filterProducts(KS_PRODUCTS, { filter: p => p.featured, limit: 3 }),
+    rowCard(p => productCard(p, KS_CURRENCY)),
+    'Our picks are being updated.');
+
+  mount('ks-reads',
+    KS_ARTICLES.slice(0, 3),
+    rowCard(articleCard),
+    'New articles are coming soon.');
 
   mount('ks-deals',
     filterProducts(KS_PRODUCTS, { filter: p => p.deal, limit: 3 }),
     p => productCard(p, KS_CURRENCY),
     'No deals running this week — check back soon.');
-
-  mount('ks-articles',
-    KS_ARTICLES.filter(a => !a.featured).slice(0, 3),
-    articleCard,
-    'New articles are coming soon.');
 
   const guide = KS_ARTICLES.find(a => a.featured);
   if (guide) {
@@ -91,8 +108,132 @@ function init() {
       'Picks for this guide are being updated.');
   }
 
-  mount('ks-testimonials', KS_TESTIMONIALS, testimonialCard,
-    'Parent stories coming soon.');
+  mount('ks-testimonials', KS_TESTIMONIALS, testimonialCard, 'Parent stories coming soon.');
+}
+
+/* ---------- filterable listing (shop + blog) ---------- */
+
+function initListing(config) {
+  const grid = document.getElementById(config.gridId);
+  const chips = document.getElementById(config.chipsId);
+  const count = document.getElementById(config.countId);
+  if (!grid || !chips) return;
+
+  const params = new URLSearchParams(location.search);
+  let active = params.get('cat') || 'all';
+  if (!KS_CATEGORIES.some(c => c.id === active)) active = 'all';
+
+  const options = [{ id: 'all', name: 'Everything' }, ...KS_CATEGORIES];
+  chips.innerHTML = options.map(o =>
+    `<button class="ks-chip" type="button" data-cat="${escapeHtml(o.id)}"
+       aria-pressed="${o.id === active}">${escapeHtml(o.name)}</button>`
+  ).join('');
+
+  function draw() {
+    const items = active === 'all'
+      ? config.all
+      : config.all.filter(i => config.categoryOf(i) === active);
+
+    grid.innerHTML = items.length
+      ? items.map(config.render).join('')
+      : emptyState(config.emptyMessage);
+
+    if (count) {
+      count.textContent = `${items.length} ${items.length === 1 ? config.noun : config.nounPlural}`;
+    }
+
+    chips.querySelectorAll('.ks-chip').forEach(btn => {
+      btn.setAttribute('aria-pressed', String(btn.dataset.cat === active));
+    });
+  }
+
+  chips.addEventListener('click', (e) => {
+    const btn = e.target.closest('.ks-chip');
+    if (!btn) return;
+    active = btn.dataset.cat;
+    const url = new URL(location.href);
+    if (active === 'all') url.searchParams.delete('cat');
+    else url.searchParams.set('cat', active);
+    history.replaceState({}, '', url);
+    draw();
+  });
+
+  draw();
+}
+
+function initShop() {
+  initListing({
+    gridId: 'ks-shop-grid', chipsId: 'ks-shop-chips', countId: 'ks-shop-count',
+    all: KS_PRODUCTS,
+    categoryOf: p => p.category,
+    render: p => productCard(p, KS_CURRENCY),
+    noun: 'pick', nounPlural: 'picks',
+    emptyMessage: 'No picks in this category yet. Try another.'
+  });
+}
+
+function initBlog() {
+  initListing({
+    gridId: 'ks-blog-grid', chipsId: 'ks-blog-chips', countId: 'ks-blog-count',
+    all: KS_ARTICLES,
+    categoryOf: a => a.categoryId,
+    render: articleCard,
+    noun: 'article', nounPlural: 'articles',
+    emptyMessage: 'No articles in this category yet. Try another.'
+  });
+}
+
+/* ---------- contact ---------- */
+
+function initContact() {
+  const form = document.getElementById('ks-contact-form');
+  if (!form) return;
+  const note = document.getElementById('ks-contact-note');
+
+  const rules = {
+    'contact-name':    v => v.trim().length >= 2 || 'Enter your name.',
+    'contact-email':   v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) || 'Enter a valid email address.',
+    'contact-message': v => v.trim().length >= 10 || 'Tell us a little more — at least 10 characters.'
+  };
+
+  function validateField(id) {
+    const input = document.getElementById(id);
+    const error = document.getElementById(`${id}-error`);
+    if (!input || !error) return true;
+    const result = rules[id](input.value);
+    error.textContent = result === true ? '' : result;
+    input.setAttribute('aria-invalid', result === true ? 'false' : 'true');
+    return result === true;
+  }
+
+  Object.keys(rules).forEach(id => {
+    const input = document.getElementById(id);
+    if (input) input.addEventListener('blur', () => validateField(id));
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const results = Object.keys(rules).map(validateField);
+    if (results.includes(false)) {
+      note.textContent = 'Check the highlighted fields above.';
+      note.dataset.state = 'error';
+      form.querySelector('[aria-invalid="true"]')?.focus();
+      return;
+    }
+    note.textContent = 'Looks good. Sending is not connected yet — this form goes live with the backend.';
+    note.dataset.state = 'ok';
+  });
+}
+
+/* ---------- boot ---------- */
+
+function init() {
+  initChrome();
+  initNewsletter();
+  initHome();
+  initShop();
+  initBlog();
+  initContact();
 }
 
 if (document.readyState === 'loading') {
