@@ -1,0 +1,249 @@
+/* ============================================================
+   KidSpark at Home — design system
+   Tokens first. Components below reference tokens only.
+   ============================================================ */
+
+:root {
+  /* Brand */
+  --ks-indigo:       #4338CA;
+  --ks-indigo-dark:  #3326A8;
+  --ks-teal:         #128070;
+  --ks-teal-dark:    #0E6457;
+
+  /* Surfaces */
+  --ks-cream:  #FFF6E9;
+  --ks-amber:  #FFE8C2;
+  --ks-mint:   #E3F4F0;
+  --ks-sand:   #F7F5EF;
+  --ks-white:  #FFFFFF;
+  --ks-border: #ECE7DC;
+
+  /* Category pastels */
+  --ks-pastel-mint:   #DFF3EE;
+  --ks-pastel-lilac:  #EDE7FB;
+  --ks-pastel-peach:  #FFE9D6;
+  --ks-pastel-sky:    #E4EEFB;
+  --ks-pastel-blush:  #FBE4E9;
+  --ks-pastel-butter: #FBF0D2;
+
+  /* Text */
+  --ks-ink:   #21263A;
+  --ks-body:  #5B6373;
+  --ks-muted: #7B8394;
+
+  /* Functional — not brand, not retail */
+  --ks-error:    #B3261E;  /* form validation only; 4.5:1 on white */
+  --ks-whatsapp: #25D366;  /* WhatsApp's own brand green, fixed by them */
+
+  /* Type */
+  --ks-font-head: 'Baloo 2', system-ui, sans-serif;
+  --ks-font-body: 'Nunito', system-ui, sans-serif;
+  --ks-text-h1:    clamp(34px, 5vw, 54px);
+  --ks-text-h2:    clamp(26px, 3.4vw, 36px);
+  --ks-text-h3:    22px;
+  --ks-text-body:  17px;
+  --ks-text-small: 15px;
+  --ks-text-tiny:  13px;
+  --ks-leading:    1.7;
+
+  /* Space — 4px base */
+  --ks-s1: 4px;   --ks-s2: 8px;   --ks-s3: 12px;  --ks-s4: 16px;
+  --ks-s5: 24px;  --ks-s6: 32px;  --ks-s7: 48px;  --ks-s8: 64px;
+  --ks-s9: 88px;
+
+  /* Shape */
+  --ks-radius-card: 24px;
+  --ks-radius-img:  18px;
+  --ks-radius-pill: 999px;
+
+  /* Soft, warm-tinted shadows */
+  --ks-shadow-sm: 0 4px 14px rgba(91, 76, 46, 0.07);
+  --ks-shadow-md: 0 10px 28px rgba(91, 76, 46, 0.10);
+  --ks-shadow-lg: 0 18px 44px rgba(91, 76, 46, 0.13);
+
+  /* Layout */
+  --ks-container: 1280px;
+  --ks-gutter: 32px;
+
+  --ks-tap: 48px;
+  --ks-ease: cubic-bezier(.22,.61,.36,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: var(--ks-font-body);
+  font-size: var(--ks-text-body);
+  line-height: var(--ks-leading);
+  color: var(--ks-body);
+  background: var(--ks-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ks-font-head);
+  color: var(--ks-ink);
+  line-height: 1.2;
+  margin: 0;
+}
+h1 { font-size: var(--ks-text-h1); font-weight: 800; }
+h2 { font-size: var(--ks-text-h2); font-weight: 700; }
+h3 { font-size: var(--ks-text-h3); font-weight: 700; }
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+::selection { background: var(--ks-amber); }
+
+:focus-visible {
+  outline: 3px solid var(--ks-indigo);
+  outline-offset: 3px;
+  border-radius: var(--ks-s1);
+}
+
+.ks-wrap {
+  max-width: var(--ks-container);
+  margin: 0 auto;
+  padding: 0 var(--ks-gutter);
+}
+
+.ks-sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---------- Buttons: three variants, one shape ---------- */
+
+.ks-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: var(--ks-s2);
+  min-height: var(--ks-tap);
+  padding: var(--ks-s3) var(--ks-s5);
+  border-radius: var(--ks-radius-pill);
+  font-family: var(--ks-font-body);
+  font-size: var(--ks-text-body);
+  font-weight: 700;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background-color .2s var(--ks-ease),
+              border-color .2s var(--ks-ease),
+              color .2s var(--ks-ease),
+              transform .2s var(--ks-ease);
+}
+.ks-btn:active { transform: translateY(1px); }
+.ks-btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+.ks-btn--primary { background: var(--ks-indigo); color: var(--ks-white); }
+.ks-btn--primary:hover:not(:disabled) { background: var(--ks-indigo-dark); }
+
+.ks-btn--outline {
+  background: transparent; color: var(--ks-ink);
+  border-color: var(--ks-border);
+}
+.ks-btn--outline:hover:not(:disabled) {
+  border-color: var(--ks-indigo); color: var(--ks-indigo);
+}
+
+/* Merchant = outbound affiliate links ONLY. Never used elsewhere. */
+.ks-btn--merchant { background: var(--ks-teal); color: var(--ks-white); }
+.ks-btn--merchant:hover:not(:disabled) { background: var(--ks-teal-dark); }
+
+.ks-btn--block { width: 100%; }
+
+/* ---------- Cards ---------- */
+
+.ks-card {
+  background: var(--ks-white);
+  border: 1px solid var(--ks-border);
+  border-radius: var(--ks-radius-card);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: box-shadow .25s var(--ks-ease), transform .25s var(--ks-ease);
+}
+.ks-card:hover { box-shadow: var(--ks-shadow-md); transform: translateY(-3px); }
+.ks-card__media { position: relative; aspect-ratio: 4 / 3; background: var(--ks-sand); }
+.ks-card__media img { width: 100%; height: 100%; object-fit: cover; }
+.ks-card__body { padding: var(--ks-s5); display: flex; flex-direction: column; gap: var(--ks-s3); flex: 1; }
+.ks-card__title { font-size: var(--ks-text-h3); }
+.ks-card__blurb { font-size: var(--ks-text-small); margin: 0; }
+.ks-card__foot { margin-top: auto; display: flex; flex-direction: column; gap: var(--ks-s3); }
+
+/* ---------- Badges ---------- */
+
+.ks-badge {
+  display: inline-flex; align-items: center; gap: var(--ks-s1);
+  padding: var(--ks-s1) var(--ks-s3);
+  border-radius: var(--ks-radius-pill);
+  font-size: var(--ks-text-tiny); font-weight: 700;
+  background: var(--ks-mint); color: var(--ks-ink);
+}
+.ks-badge--merchant { background: var(--ks-sand); color: var(--ks-body); }
+.ks-badge--value    { background: var(--ks-amber); color: var(--ks-ink); }
+.ks-badge--float    { position: absolute; top: var(--ks-s3); left: var(--ks-s3); }
+
+/* ---------- Price ---------- */
+
+.ks-price { display: flex; align-items: baseline; gap: var(--ks-s2); }
+.ks-price__now { font-family: var(--ks-font-head); font-size: 22px; font-weight: 700; color: var(--ks-ink); }
+.ks-price__was { font-size: var(--ks-text-small); color: var(--ks-muted); text-decoration: line-through; }
+
+/* ---------- Section heading ---------- */
+
+.ks-section-head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: var(--ks-s4); margin-bottom: var(--ks-s6);
+}
+.ks-section-head__eyebrow {
+  font-size: var(--ks-text-small); font-weight: 800;
+  color: var(--ks-teal); text-transform: uppercase; letter-spacing: .06em;
+  margin: 0 0 var(--ks-s2);
+}
+.ks-section-head__link { font-weight: 700; color: var(--ks-indigo); white-space: nowrap; }
+.ks-section-head__link:hover { color: var(--ks-indigo-dark); }
+
+/* ---------- Category cards ---------- */
+
+.ks-cat-card {
+  display: flex; flex-direction: column; gap: var(--ks-s3);
+  padding: var(--ks-s5);
+  min-height: 148px;
+  border-radius: var(--ks-radius-card);
+  color: var(--ks-ink);
+  transition: box-shadow .25s var(--ks-ease), transform .25s var(--ks-ease);
+}
+.ks-cat-card:hover { box-shadow: var(--ks-shadow-md); transform: translateY(-3px); }
+.ks-cat-card__name { font-family: var(--ks-font-head); font-size: 19px; font-weight: 700; }
+.ks-cat-card__count { font-size: var(--ks-text-small); color: var(--ks-body); }
+.ks-cat-card__icon { width: 40px; height: 40px; }
+
+.ks-cat-card--mint   { background: var(--ks-pastel-mint); }
+.ks-cat-card--lilac  { background: var(--ks-pastel-lilac); }
+.ks-cat-card--peach  { background: var(--ks-pastel-peach); }
+.ks-cat-card--sky    { background: var(--ks-pastel-sky); }
+.ks-cat-card--blush  { background: var(--ks-pastel-blush); }
+.ks-cat-card--butter { background: var(--ks-pastel-butter); }
+
+/* ---------- Empty state ---------- */
+
+.ks-empty {
+  padding: var(--ks-s7) var(--ks-s5);
+  text-align: center;
+  color: var(--ks-muted);
+  background: var(--ks-sand);
+  border-radius: var(--ks-radius-card);
+}
+
+/* ---------- Motion ---------- */
+
+@keyframes ksFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.ks-float { animation: ksFloat 6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

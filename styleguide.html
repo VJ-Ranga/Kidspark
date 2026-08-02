@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KidSpark at Home — Styleguide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/kidspark.css">
+<style>
+  .sg-section { padding: var(--ks-s8) 0; border-bottom: 1px solid var(--ks-border); }
+  .sg-section:last-child { border-bottom: none; }
+  .sg-section h2 { margin-bottom: var(--ks-s6); }
+  .sg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--ks-s4); }
+  .sg-swatch { border-radius: var(--ks-radius-img); border: 1px solid var(--ks-border); overflow: hidden; }
+  .sg-swatch__fill { height: 88px; }
+  .sg-swatch__label { padding: var(--ks-s3); background: var(--ks-white); }
+  .sg-swatch__name { display: block; font-weight: 700; font-size: var(--ks-text-small); color: var(--ks-ink); }
+  .sg-swatch__hex { display: block; font-size: var(--ks-text-tiny); color: var(--ks-muted); }
+  .sg-type-row { display: flex; align-items: baseline; gap: var(--ks-s5); margin-bottom: var(--ks-s5); flex-wrap: wrap; }
+  .sg-type-row .sg-type-meta { font-size: var(--ks-text-tiny); color: var(--ks-muted); white-space: nowrap; }
+  .sg-row { display: flex; align-items: center; gap: var(--ks-s4); flex-wrap: wrap; margin-bottom: var(--ks-s4); }
+  .sg-row-label { width: 110px; font-size: var(--ks-text-small); font-weight: 700; color: var(--ks-muted); }
+  .sg-cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--ks-s5); }
+</style>
+</head>
+<body>
+<div class="ks-wrap">
+
+  <header class="sg-section">
+    <h1>KidSpark at Home — Styleguide</h1>
+    <p>Design tokens and component reference. This page has no JavaScript.</p>
+  </header>
+
+  <!-- 1. Colors -->
+  <section class="sg-section" id="colors">
+    <h2>Colors</h2>
+
+    <h3>Brand</h3>
+    <div class="sg-grid">
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-indigo);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-indigo</span><span class="sg-swatch__hex">#4338CA</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-indigo-dark);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-indigo-dark</span><span class="sg-swatch__hex">#3326A8</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-teal);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-teal</span><span class="sg-swatch__hex">#128070</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-teal-dark);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-teal-dark</span><span class="sg-swatch__hex">#0E6457</span></div>
+      </div>
+    </div>
+
+    <h3 style="margin-top: var(--ks-s6);">Surfaces</h3>
+    <div class="sg-grid">
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-cream);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-cream</span><span class="sg-swatch__hex">#FFF6E9</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-amber);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-amber</span><span class="sg-swatch__hex">#FFE8C2</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-mint);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-mint</span><span class="sg-swatch__hex">#E3F4F0</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-sand);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-sand</span><span class="sg-swatch__hex">#F7F5EF</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-white); border-bottom: 1px solid var(--ks-border);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-white</span><span class="sg-swatch__hex">#FFFFFF</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-border);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-border</span><span class="sg-swatch__hex">#ECE7DC</span></div>
+      </div>
+    </div>
+
+    <h3 style="margin-top: var(--ks-s6);">Category pastels</h3>
+    <div class="sg-grid">
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-pastel-mint);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-pastel-mint</span><span class="sg-swatch__hex">#DFF3EE</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-pastel-lilac);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-pastel-lilac</span><span class="sg-swatch__hex">#EDE7FB</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-pastel-peach);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-pastel-peach</span><span class="sg-swatch__hex">#FFE9D6</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-pastel-sky);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-pastel-sky</span><span class="sg-swatch__hex">#E4EEFB</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-pastel-blush);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-pastel-blush</span><span class="sg-swatch__hex">#FBE4E9</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-pastel-butter);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-pastel-butter</span><span class="sg-swatch__hex">#FBF0D2</span></div>
+      </div>
+    </div>
+
+    <h3 style="margin-top: var(--ks-s6);">Text</h3>
+    <div class="sg-grid">
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-ink);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-ink</span><span class="sg-swatch__hex">#21263A</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-body);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-body</span><span class="sg-swatch__hex">#5B6373</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch__fill" style="background: var(--ks-muted);"></div>
+        <div class="sg-swatch__label"><span class="sg-swatch__name">--ks-muted</span><span class="sg-swatch__hex">#7B8394</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Type -->
+  <section class="sg-section" id="type">
+    <h2>Type</h2>
+
+    <div class="sg-type-row">
+      <h1>Growing minds, playful days</h1>
+      <span class="sg-type-meta">h1 — --ks-text-h1 — clamp(34px, 5vw, 54px) / weight 800</span>
+    </div>
+    <div class="sg-type-row">
+      <h2>Explore our top categories</h2>
+      <span class="sg-type-meta">h2 — --ks-text-h2 — clamp(26px, 3.4vw, 36px) / weight 700</span>
+    </div>
+    <div class="sg-type-row">
+      <h3>Best sellers this month</h3>
+      <span class="sg-type-meta">h3 — --ks-text-h3 — 22px / weight 700</span>
+    </div>
+    <div class="sg-type-row">
+      <p style="margin:0; font-size: var(--ks-text-body);">Body text is set at 17px with a 1.7 line-height so long product descriptions stay easy to read on every screen.</p>
+      <span class="sg-type-meta">body — --ks-text-body — 17px / line-height 1.7</span>
+    </div>
+    <div class="sg-type-row">
+      <p style="margin:0; font-size: var(--ks-text-small);">Small text is used for captions, meta and blurbs.</p>
+      <span class="sg-type-meta">small — --ks-text-small — 15px</span>
+    </div>
+    <div class="sg-type-row">
+      <p style="margin:0; font-size: var(--ks-text-tiny);">Tiny text is used for badges and fine print.</p>
+      <span class="sg-type-meta">tiny — --ks-text-tiny — 13px</span>
+    </div>
+  </section>
+
+  <!-- 3. Buttons -->
+  <section class="sg-section" id="buttons">
+    <h2>Buttons</h2>
+
+    <div class="sg-row">
+      <span class="sg-row-label">Primary</span>
+      <button class="ks-btn ks-btn--primary">Default</button>
+      <button class="ks-btn ks-btn--primary">Hover (see :hover)</button>
+      <button class="ks-btn ks-btn--primary" disabled>Disabled</button>
+    </div>
+    <div class="sg-row">
+      <span class="sg-row-label">Primary block</span>
+      <div style="flex: 1 1 260px; max-width: 320px;">
+        <button class="ks-btn ks-btn--primary ks-btn--block">Full width</button>
+      </div>
+    </div>
+
+    <div class="sg-row">
+      <span class="sg-row-label">Outline</span>
+      <button class="ks-btn ks-btn--outline">Default</button>
+      <button class="ks-btn ks-btn--outline">Hover (see :hover)</button>
+      <button class="ks-btn ks-btn--outline" disabled>Disabled</button>
+    </div>
+    <div class="sg-row">
+      <span class="sg-row-label">Outline block</span>
+      <div style="flex: 1 1 260px; max-width: 320px;">
+        <button class="ks-btn ks-btn--outline ks-btn--block">Full width</button>
+      </div>
+    </div>
+
+    <div class="sg-row">
+      <span class="sg-row-label">Merchant</span>
+      <button class="ks-btn ks-btn--merchant">Default</button>
+      <button class="ks-btn ks-btn--merchant">Hover (see :hover)</button>
+      <button class="ks-btn ks-btn--merchant" disabled>Disabled</button>
+    </div>
+    <div class="sg-row">
+      <span class="sg-row-label">Merchant block</span>
+      <div style="flex: 1 1 260px; max-width: 320px;">
+        <button class="ks-btn ks-btn--merchant ks-btn--block">Full width</button>
+      </div>
+    </div>
+    <p class="ks-sr-only">Note: hover states shown above are exercised by moving a real pointer over the "Hover" buttons; :hover cannot be captured as a static state without JS, so it is documented here — Primary hovers to --ks-indigo-dark, Outline hovers to an --ks-indigo border/text, Merchant hovers to --ks-teal-dark.</p>
+  </section>
+
+  <!-- 4. Cards -->
+  <section class="sg-section" id="cards">
+    <h2>Cards</h2>
+    <div style="max-width: 320px;">
+      <article class="ks-card">
+        <div class="ks-card__media">
+          <span class="ks-badge ks-badge--merchant ks-badge--float">Amazon</span>
+        </div>
+        <div class="ks-card__body">
+          <h3 class="ks-card__title">Wooden Stacking Rings</h3>
+          <p class="ks-card__blurb">A classic first toy that builds hand-eye coordination and colour recognition.</p>
+          <div class="ks-card__foot">
+            <div class="ks-price">
+              <span class="ks-price__now">$18.99</span>
+              <span class="ks-price__was">$24.99</span>
+            </div>
+            <a class="ks-btn ks-btn--merchant ks-btn--block" href="#">View on Amazon</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 5. Badges -->
+  <section class="sg-section" id="badges">
+    <h2>Badges</h2>
+    <div class="sg-row">
+      <span class="ks-badge">Default</span>
+      <span class="ks-badge ks-badge--merchant">Merchant</span>
+      <span class="ks-badge ks-badge--value">Value</span>
+      <span style="position: relative; display: inline-block; width: 160px; height: 88px; background: var(--ks-sand); border-radius: var(--ks-radius-img);">
+        <span class="ks-badge ks-badge--float">Float</span>
+      </span>
+    </div>
+  </section>
+
+  <!-- 6. Category cards -->
+  <section class="sg-section" id="category-cards">
+    <h2>Category cards</h2>
+    <div class="sg-cards-grid">
+      <div class="ks-cat-card ks-cat-card--mint">
+        <svg class="ks-cat-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="16" fill="var(--ks-teal)"/>
+        </svg>
+        <span class="ks-cat-card__name">Wooden Toys</span>
+        <span class="ks-cat-card__count">32 products</span>
+      </div>
+      <div class="ks-cat-card ks-cat-card--lilac">
+        <svg class="ks-cat-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="6" y="6" width="28" height="28" rx="8" fill="var(--ks-indigo)"/>
+        </svg>
+        <span class="ks-cat-card__name">Learning Games</span>
+        <span class="ks-cat-card__count">18 products</span>
+      </div>
+      <div class="ks-cat-card ks-cat-card--peach">
+        <svg class="ks-cat-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polygon points="20,6 34,34 6,34" fill="var(--ks-teal-dark)"/>
+        </svg>
+        <span class="ks-cat-card__name">Outdoor Play</span>
+        <span class="ks-cat-card__count">24 products</span>
+      </div>
+      <div class="ks-cat-card ks-cat-card--sky">
+        <svg class="ks-cat-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="16" fill="var(--ks-indigo-dark)"/>
+        </svg>
+        <span class="ks-cat-card__name">Nursery Decor</span>
+        <span class="ks-cat-card__count">15 products</span>
+      </div>
+      <div class="ks-cat-card ks-cat-card--blush">
+        <svg class="ks-cat-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="6" y="6" width="28" height="28" rx="14" fill="var(--ks-teal)"/>
+        </svg>
+        <span class="ks-cat-card__name">Feeding &amp; Bath</span>
+        <span class="ks-cat-card__count">21 products</span>
+      </div>
+      <div class="ks-cat-card ks-cat-card--butter">
+        <svg class="ks-cat-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polygon points="20,6 34,34 6,34" fill="var(--ks-indigo)"/>
+        </svg>
+        <span class="ks-cat-card__name">Books</span>
+        <span class="ks-cat-card__count">29 products</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Empty state -->
+  <section class="sg-section" id="empty-state">
+    <h2>Empty state</h2>
+    <div class="ks-empty">
+      <p style="margin:0;">No products found. Try adjusting your filters.</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
