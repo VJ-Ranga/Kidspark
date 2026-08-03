@@ -753,7 +753,13 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ---------- Ambient pastel wash behind plain sections ---------- */
 
-.ks-atmos { position: relative; overflow: hidden; }
+/* No overflow:hidden here — these sections are also .ks-wrap (max-width
+   1280px), so clipping drew a hard-edged tinted rectangle down the page.
+   The wash now bleeds outward and is clipped at <main> instead, at the
+   viewport edge, where the cut is invisible. `clip` (not `hidden`) keeps
+   the sticky header working — and the header sits outside <main> anyway. */
+.ks-atmos { position: relative; }
+main { overflow-x: clip; }
 .ks-atmos > * { position: relative; z-index: 1; }
 .ks-atmos::before,
 .ks-atmos::after {
@@ -767,12 +773,14 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .ks-atmos::before {
   width: 420px; height: 420px;
-  top: -140px; left: -120px;
+  top: -140px;
+  left: -140px;
   background: var(--ks-pastel-sky);
 }
 .ks-atmos::after {
   width: 360px; height: 360px;
-  bottom: -160px; right: -110px;
+  bottom: -160px;
+  right: -130px;
   background: var(--ks-pastel-blush);
 }
 .ks-atmos--warm::before { background: var(--ks-pastel-butter); }
