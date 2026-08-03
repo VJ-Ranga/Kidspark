@@ -306,18 +306,23 @@ img { max-width: 100%; height: auto; display: block; }
 .ks-logo {
   display: inline-flex;
   flex-direction: column;
+  gap: 2px;
+  line-height: 1;
   font-family: var(--ks-font-head);
   font-size: 24px;
   font-weight: 800;
   color: var(--ks-ink);
 }
-.ks-logo span {
+/* The coloured letters must stay on ONE line — they are their own row,
+   not siblings of the column. */
+.ks-logo__word { display: flex; align-items: baseline; line-height: 1; }
+.ks-logo__sub {
   font-family: var(--ks-font-body);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--ks-teal);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  letter-spacing: .08em;
+  color: var(--ks-teal);
 }
 
 .ks-header__actions {
@@ -1002,11 +1007,15 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ---------- Colourful wordmark ---------- */
 
-.ks-logo__k { color: var(--ks-toy-teal); }
-.ks-logo__i { color: var(--ks-toy-orange); }
-.ks-logo__d { color: var(--ks-toy-blue); }
-.ks-logo__rest { color: var(--ks-ink); }
-.ks-logo__spark { color: var(--ks-toy-yellow); margin-right: 2px; }
+.ks-logo__k  { color: var(--ks-toy-blue); }
+.ks-logo__i  { color: var(--ks-toy-orange); }
+.ks-logo__d  { color: var(--ks-toy-pink); }
+.ks-logo__s  { color: var(--ks-toy-purple); }
+.ks-logo__p  { color: var(--ks-toy-green); }
+.ks-logo__a  { color: var(--ks-toy-blue); }
+.ks-logo__r  { color: var(--ks-toy-orange); }
+.ks-logo__k2 { color: var(--ks-toy-pink); }
+.ks-logo__spark { color: var(--ks-toy-yellow); font-size: 14px; align-self: flex-start; margin-right: 1px; }
 
 /* ---------- Footer landscape ---------- */
 

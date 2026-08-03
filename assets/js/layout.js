@@ -22,7 +22,7 @@ function navLinks(active, extraClass = '') {
 export function headerHtml(active) {
   return `
 <div class="ks-wrap ks-header__inner">
-  <a class="ks-logo" href="index.html"><span class="ks-logo__spark">✦</span><span class="ks-logo__k">K</span><span class="ks-logo__rest">id</span><span class="ks-logo__d">s</span><span class="ks-logo__rest">park</span><span>at Home</span></a>
+  <a class="ks-logo" href="index.html"><span class="ks-logo__word"><span class="ks-logo__spark">✦</span><span class="ks-logo__k">K</span><span class="ks-logo__i">i</span><span class="ks-logo__d">d</span><span class="ks-logo__s">s</span><span class="ks-logo__p">p</span><span class="ks-logo__a">a</span><span class="ks-logo__r">r</span><span class="ks-logo__k2">k</span></span><span class="ks-logo__sub">at Home</span></a>
 
   <nav class="ks-nav" aria-label="Main">${navLinks(active)}</nav>
 
@@ -43,7 +43,7 @@ export function footerHtml() {
 <div class="ks-wrap">
   <div class="ks-footer__grid">
     <div>
-      <a class="ks-logo" href="index.html"><span class="ks-logo__spark">✦</span><span class="ks-logo__k">K</span><span class="ks-logo__rest">id</span><span class="ks-logo__d">s</span><span class="ks-logo__rest">park</span><span>at Home</span></a>
+      <a class="ks-logo" href="index.html"><span class="ks-logo__word"><span class="ks-logo__spark">✦</span><span class="ks-logo__k">K</span><span class="ks-logo__i">i</span><span class="ks-logo__d">d</span><span class="ks-logo__s">s</span><span class="ks-logo__p">p</span><span class="ks-logo__a">a</span><span class="ks-logo__r">r</span><span class="ks-logo__k2">k</span></span><span class="ks-logo__sub">at Home</span></a>
       <p>Practical play ideas and honest product picks for babies and toddlers.</p>
     </div>
     <div>
