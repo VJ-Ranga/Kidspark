@@ -1,10 +1,10 @@
-import { KS_CURRENCY, KS_CATEGORIES, KS_PRODUCTS, KS_ARTICLES, KS_TESTIMONIALS } from './data.js';
+import { KS_CURRENCY, KS_CATEGORIES, KS_PRODUCTS, KS_ARTICLES, KS_TESTIMONIALS } from './data.js?v=7';
 import {
   filterProducts, productCard, categoryCard,
   articleCard, testimonialCard, emptyState, escapeHtml
-} from './render.js';
-import { headerHtml, footerHtml, whatsappHtml } from './layout.js';
-import { scatter, character } from './decor.js';
+} from './render.js?v=7';
+import { headerHtml, footerHtml, whatsappHtml } from './layout.js?v=7';
+import { scatter, character } from './decor.js?v=7';
 
 /* ---------- generic mounting ---------- */
 
@@ -322,7 +322,7 @@ const CHARS = {
   ],
   deals:        [['giraffe','ks-char--bob-slow ks-char--hide-md','bottom:-10px;right:1%;width:120px;height:165px']],
   guide:        [['dino','ks-char--bob ks-char--hide-md','bottom:-14px;left:-62px;width:130px;height:148px']],
-  hero_balloon: [['balloon','ks-char--bob-slow ks-char--hide-sm','top:14%;left:1%;width:92px;height:113px']]
+  deals_balloon: [['balloon','ks-char--bob-slow ks-char--hide-sm','top:8%;left:2%;width:86px;height:105px']]
 };
 
 function decorate(hostSelector, scatterKey, chars) {
@@ -337,10 +337,10 @@ function decorate(hostSelector, scatterKey, chars) {
 }
 
 function initDecor() {
-  decorate('.ks-hero', 'hero', [...CHARS.hero, ...CHARS.hero_balloon]);
+  decorate('.ks-hero', 'hero', CHARS.hero);
   decorate('#categories', 'categories');
   decorate('#picks', 'picks');
-  decorate('#deals', 'deals', CHARS.deals);
+  decorate('#deals', 'deals', [...CHARS.deals, ...CHARS.deals_balloon]);
   decorate('.ks-guide', 'guide', CHARS.guide);
   decorate('#testimonials', 'testimonials');
   decorate('.ks-footer', null, [['balloon','ks-char--hide-md','bottom:16px;right:4%;width:80px;height:98px']]);

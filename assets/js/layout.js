@@ -2,7 +2,7 @@
    can never drift apart between pages. When this moves to CodeIgniter these
    become app/Views/partials/header.php and footer.php. */
 
-import { escapeHtml } from './render.js';
+import { escapeHtml } from './render.js?v=7';
 
 const NAV = [
   { href: 'index.html',   label: 'Home' },

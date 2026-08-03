@@ -4,7 +4,7 @@
     {
       "name": "KidSpark",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "3000", "--directory", "/var/www/KID"],
+      "runtimeArgs": ["/var/www/KID/tools/devserver.py", "3000", "/var/www/KID"],
       "port": 3000
     }
   ]

@@ -1113,3 +1113,9 @@ main { overflow-x: clip; }
 .ks-atmos > .ks-scatter, .ks-panel > .ks-scatter, .ks-footer > .ks-scatter {
   position: absolute;
 }
+
+/* Reference colours the second half of the hero headline teal. */
+.ks-hero__accent { color: var(--ks-teal); }
+
+/* Testimonials sit on lavender in the reference, not mint. */
+#testimonials { background: var(--ks-pastel-lilac); }
