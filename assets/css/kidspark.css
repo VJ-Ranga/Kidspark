@@ -245,7 +245,7 @@ img { max-width: 100%; height: auto; display: block; }
 .ks-cat-card:hover { box-shadow: var(--ks-shadow-md); transform: translateY(-3px); }
 .ks-cat-card__name { font-family: var(--ks-font-head); font-size: 19px; font-weight: 700; }
 .ks-cat-card__count { font-size: var(--ks-text-small); color: var(--ks-body); }
-.ks-cat-card__icon { width: 40px; height: 40px; }
+.ks-cat-card__icon { width: 32px; height: 32px; opacity: .85; }
 
 .ks-cat-card--mint   { background: var(--ks-pastel-mint); }
 .ks-cat-card--lilac  { background: var(--ks-pastel-lilac); }
@@ -906,53 +906,6 @@ img { max-width: 100%; height: auto; display: block; }
 .ks-char { position: absolute; display: block; pointer-events: none; z-index: 0; }
 .ks-char svg { width: 100%; height: 100%; display: block; overflow: visible; }
 
-/* Character palettes */
-.c-sun { fill: var(--ks-toy-yellow); }
-.c-sun-ray { stroke: var(--ks-toy-yellow); }
-.c-eye { fill: var(--ks-toy-ink); }
-.c-smile { stroke: var(--ks-toy-ink); fill: none; }
-.c-blush { fill: var(--ks-toy-pink); opacity: .65; }
-.c-cloud { fill: var(--ks-white); stroke: var(--ks-pastel-sky); stroke-width: 2; }
-
-.r1 { stroke: var(--ks-toy-red); fill: none; }
-.r2 { stroke: var(--ks-toy-yellow); fill: none; }
-.r3 { stroke: var(--ks-toy-teal); fill: none; }
-
-.b-body { fill: var(--ks-toy-pink); }
-.b-stripe { fill: var(--ks-toy-yellow); opacity: .85; }
-.b-basket { fill: var(--ks-toy-brown); }
-.b-rope { stroke: var(--ks-toy-brown); }
-
-.g-body, .g-head, .g-neck, .g-leg { fill: var(--ks-toy-yellow); }
-.g-snout { fill: var(--ks-toy-orange); opacity: .5; }
-.g-spot { fill: var(--ks-toy-orange); opacity: .8; }
-.g-horn { stroke: var(--ks-toy-brown); }
-.g-horn-tip { fill: var(--ks-toy-brown); }
-
-.d-body { fill: var(--ks-toy-green); }
-.d-spike { fill: var(--ks-toy-teal); }
-.d-leg { fill: var(--ks-toy-green); }
-.d-belly { fill: var(--ks-white); opacity: .45; }
-
-.p-head { fill: var(--ks-white); stroke: var(--ks-border); stroke-width: 2; }
-.p-ear, .p-patch, .p-nose { fill: var(--ks-toy-ink); }
-.p-eye { fill: var(--ks-white); }
-
-.t-car   { fill: var(--ks-toy-red); }
-.t-car2  { fill: var(--ks-toy-blue); }
-.t-cab   { fill: var(--ks-toy-yellow); }
-.t-window{ fill: var(--ks-white); opacity: .9; }
-.t-chimney { fill: var(--ks-toy-red); }
-.t-wheel { fill: var(--ks-toy-ink); opacity: .75; }
-
-.tr-trunk { fill: var(--ks-toy-brown); }
-.tr-leaf  { fill: var(--ks-toy-green); }
-.tr-leaf2 { fill: var(--ks-toy-teal); opacity: .85; }
-
-.f-stem { fill: var(--ks-toy-green); }
-.f-petal { fill: var(--ks-toy-pink); }
-.f-heart { fill: var(--ks-toy-yellow); }
-
 /* Gentle idle motion for the characters */
 .ks-char--bob { animation: ksDrift 7s ease-in-out infinite; }
 .ks-char--bob-slow { animation: ksDrift 11s ease-in-out infinite; }
@@ -1136,3 +1089,6 @@ img { max-width: 100%; height: auto; display: block; }
   .ks-news__input { width: 100%; min-width: 0; }
 }
 .ks-card__tags { display: flex; flex-wrap: wrap; gap: var(--ks-s2); }
+
+/* Illustrated PNG stickers sit inside the same slots as the SVG ones. */
+.ks-char img, .ks-doodle img { width: 100%; height: auto; display: block; }

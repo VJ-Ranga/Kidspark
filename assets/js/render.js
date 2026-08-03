@@ -75,7 +75,7 @@ export function productCard(product, currency) {
 export function categoryCard(category) {
   return `
 <a class="ks-cat-card ks-cat-card--${escapeHtml(category.tone)}" href="${escapeHtml(category.href)}">
-  <span class="ks-cat-card__icon" aria-hidden="true">${category.icon}</span>
+  <img class="ks-cat-card__icon" src="${escapeHtml(category.icon)}" alt="" aria-hidden="true" width="32" height="32" loading="lazy">
   <span class="ks-cat-card__name">${escapeHtml(category.name)}</span>
   <span class="ks-cat-card__count">${escapeHtml(category.count)} picks</span>
 </a>`;

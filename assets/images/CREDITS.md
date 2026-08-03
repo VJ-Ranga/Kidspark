@@ -51,3 +51,27 @@ their named subject — re-checked during the round-1 fix pass below.
 
 No ImageMagick placeholders were needed — all 18 subjects were sourced as
 real photographs within budget.
+
+## Decorative illustrations — assets/images/decor/
+
+Cut from a single illustration sheet supplied by the client
+(`ChatGPT Image Aug 3, 2026, 04_47_44 PM.png`), background already
+transparent. Each sticker was cropped, auto-trimmed to its bounds and
+colour-reduced for weight. Total 108KB for all ten.
+
+| File | Subject |
+|---|---|
+| balloon.png | Hot air balloon |
+| giraffe.png | Giraffe |
+| croc.png | Crocodile |
+| sun.png | Smiling sun |
+| cloud.png | Smiling cloud |
+| rainbow.png | Rainbow with clouds |
+| plane.png | Paper plane |
+| star-yellow.png / star-teal.png / star-purple.png | Stars |
+
+## Interface icons — assets/icons/
+
+[Lucide](https://lucide.dev) v1.28.0, ISC licence — free for commercial
+use. Downloaded locally rather than loaded from a CDN so the site works
+offline. Icons used: blocks, book-open, flask-conical, palette, bike, baby.

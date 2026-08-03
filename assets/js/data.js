@@ -4,12 +4,12 @@
 export const KS_CURRENCY = 'USD';   // TODO(client): confirm USD or LKR
 
 const ICON = {
-  toys:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>',
-  books:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 5v14l8-2 8 2V5l-8 2z"/><path d="M12 7v12"/></svg>',
-  stem:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 3v6l-5 9a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-5-9V3"/><path d="M8 3h8"/></svg>',
-  art:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3a9 9 0 1 0 0 18c1 0 2-1 2-2s-1-2 0-3 3 0 4-1a9 9 0 0 0-6-12z"/><circle cx="8" cy="10" r="1"/><circle cx="12" cy="7" r="1"/></svg>',
-  outdoor: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="7" r="3"/><path d="M6 21l3-7h6l3 7M9 14v-3M15 14v-3"/></svg>',
-  baby:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M9 15c1 1 5 1 6 0"/></svg>'
+  toys:    'assets/icons/blocks.svg',
+  books:   'assets/icons/book-open.svg',
+  stem:    'assets/icons/flask-conical.svg',
+  art:     'assets/icons/palette.svg',
+  outdoor: 'assets/icons/bike.svg',
+  baby:    'assets/icons/baby.svg'
 };
 
 export const KS_CATEGORIES = [
