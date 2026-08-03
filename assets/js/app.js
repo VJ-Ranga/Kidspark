@@ -4,6 +4,7 @@ import {
   articleCard, testimonialCard, emptyState, escapeHtml
 } from './render.js';
 import { headerHtml, footerHtml, whatsappHtml } from './layout.js';
+import { scatter, character } from './decor.js';
 
 /* ---------- generic mounting ---------- */
 
@@ -280,6 +281,92 @@ function initArticle() {
 
 /* ---------- boot ---------- */
 
+
+/* ---------- illustrated decoration ---------- */
+
+/* Doodles are scattered per-section from a fixed recipe rather than at
+   random, so the layout is reproducible and nothing lands on top of text. */
+const SCATTER = {
+  hero: [
+    ['star4','yellow','top:8%;left:2%;width:26px;height:26px'],
+    ['squiggle','purple','top:26%;left:6%;width:30px;height:30px'],
+    ['star5','pink','top:62%;left:3%;width:22px;height:22px'],
+    ['dots','teal','top:78%;left:9%;width:26px;height:26px'],
+    ['star4','teal','top:14%;right:30%;width:18px;height:18px'],
+    ['spiral','blue','bottom:12%;right:38%;width:26px;height:26px'],
+    ['plane','pink','bottom:6%;right:4%;width:34px;height:34px'],
+    ['star5','orange','top:46%;right:2%;width:20px;height:20px']
+  ],
+  categories: [
+    ['flower','purple','top:6%;left:1%;width:28px;height:28px'],
+    ['star4','yellow','top:40%;left:4%;width:20px;height:20px'],
+    ['confetti','pink','bottom:10%;left:2%;width:26px;height:26px'],
+    ['star5','teal','top:12%;right:3%;width:22px;height:22px'],
+    ['squiggle','blue','bottom:16%;right:1%;width:28px;height:28px']
+  ],
+  picks: [
+    ['star4','pink','top:8%;left:2%;width:22px;height:22px'],
+    ['dots','purple','bottom:18%;left:1%;width:24px;height:24px'],
+    ['star5','yellow','top:20%;right:2%;width:24px;height:24px'],
+    ['heart','red','bottom:10%;right:4%;width:20px;height:20px']
+  ],
+  deals: [
+    ['star4','orange','top:10%;left:6%;width:22px;height:22px'],
+    ['star5','red','bottom:14%;left:3%;width:20px;height:20px'],
+    ['confetti','teal','top:14%;right:6%;width:24px;height:24px']
+  ],
+  guide: [
+    ['star4','teal','top:10%;right:4%;width:22px;height:22px'],
+    ['dots','purple','bottom:12%;left:2%;width:22px;height:22px']
+  ],
+  testimonials: [
+    ['flower','purple','top:12%;left:6%;width:30px;height:30px'],
+    ['star4','pink','bottom:16%;left:12%;width:22px;height:22px'],
+    ['star5','blue','top:18%;right:8%;width:24px;height:24px'],
+    ['spiral','teal','bottom:12%;right:14%;width:26px;height:26px']
+  ]
+};
+
+const CHARS = {
+  hero: [
+    ['sun','ks-char--bob','top:6%;left:38%;width:66px;height:66px'],
+    ['cloud','ks-char--bob-slow','bottom:14%;right:6%;width:104px;height:104px'],
+    ['rainbow','','top:4%;right:1%;width:86px;height:86px']
+  ],
+  deals:        [['giraffe','ks-char--bob-slow ks-char--hide-md','bottom:0;right:2%;width:112px;height:112px']],
+  guide:        [['dino','ks-char--bob ks-char--hide-md','bottom:-6px;left:-56px;width:104px;height:104px']],
+  newsletter:   [['panda','ks-char--bob ks-char--hide-md','top:-26px;right:16px;width:88px;height:88px']],
+  hero_balloon: [['balloon','ks-char--bob-slow ks-char--hide-sm','top:18%;left:1%;width:74px;height:74px']]
+};
+
+function decorate(hostSelector, scatterKey, chars) {
+  const host = document.querySelector(hostSelector);
+  if (!host) return;
+  if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
+
+  let html = '';
+  if (scatterKey && SCATTER[scatterKey]) html += scatter(SCATTER[scatterKey]);
+  (chars || []).forEach(([name, cls, css]) => { html += character(name, cls, css); });
+  if (html) host.insertAdjacentHTML('afterbegin', html);
+}
+
+function initDecor() {
+  decorate('.ks-hero', 'hero', [...CHARS.hero, ...CHARS.hero_balloon]);
+  decorate('#categories', 'categories');
+  decorate('#picks', 'picks');
+  decorate('#deals', 'deals', CHARS.deals);
+  decorate('.ks-guide', 'guide', CHARS.guide);
+  decorate('#testimonials', 'testimonials');
+  decorate('.ks-news', null, CHARS.newsletter);
+  decorate('.ks-footer', null, [
+    ['train','', 'bottom:14px;left:24px;width:132px;height:132px'],
+    ['tree','',  'bottom:10px;right:6%;width:78px;height:78px'],
+    ['bush','ks-char--hide-md',  'bottom:6px;right:20%;width:74px;height:74px'],
+    ['bloom','ks-char--hide-md', 'bottom:12px;left:24%;width:44px;height:44px']
+  ]);
+  decorate('.ks-pagehead', 'categories');
+}
+
 /* ---------- scroll reveal ---------- */
 
 /* Content starts hidden so it can animate in, which makes revealing it
@@ -354,6 +441,7 @@ function init() {
   initShop();
   initBlog();
   initContact();
+  initDecor();
   initReveal();
 }
 

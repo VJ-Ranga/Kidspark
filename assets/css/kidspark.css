@@ -35,6 +35,19 @@
   --ks-error:    #B3261E;  /* form validation only; 4.5:1 on white */
   --ks-whatsapp: #25D366;  /* WhatsApp's own brand green, fixed by them */
 
+  /* Toybox — decorative illustration only. Never used for text or UI,
+     so these are chosen for cheer rather than contrast. */
+  --ks-toy-red:    #F4726B;
+  --ks-toy-orange: #F79A4B;
+  --ks-toy-yellow: #FFD166;
+  --ks-toy-green:  #6FCF97;
+  --ks-toy-teal:   #4FC3C7;
+  --ks-toy-blue:   #6BA8F5;
+  --ks-toy-purple: #A98BE8;
+  --ks-toy-pink:   #F58FB8;
+  --ks-toy-brown:  #C98A5E;
+  --ks-toy-ink:    #3B4256;
+
   /* Type */
   --ks-font-head: 'Baloo 2', system-ui, sans-serif;
   --ks-font-body: 'Nunito', system-ui, sans-serif;
@@ -67,6 +80,10 @@
 
   --ks-tap: 48px;
   --ks-ease: cubic-bezier(.22,.61,.36,1);
+
+  /* Hand-drawn wave used as a mask for heading underlines. Black here is
+     mask alpha, not a colour — the visible colour is set by the rule. */
+  --ks-wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 74 10'%3E%3Cpath d='M2 6c5-6 9 4 14-1s9 5 14 0 9 4 14-1 9 5 14 0' fill='none' stroke='%23000' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -856,4 +873,172 @@ img { max-width: 100%; height: auto; display: block; }
 @media (max-width: 860px) {
   .ks-hero__shape--a, .ks-hero__shape--b { display: none; }
   .ks-atmos::before, .ks-atmos::after { filter: blur(50px); opacity: .4; }
+}
+
+/* ============================================================
+   ILLUSTRATION LAYER
+   Scattered doodles and character stickers. All decorative,
+   all aria-hidden, none of it interactive.
+   ============================================================ */
+
+.ks-scatter { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+
+.ks-doodle { position: absolute; display: block; opacity: .85; }
+.ks-doodle svg { width: 100%; height: 100%; display: block; }
+.ks-doodle .d-fill  { fill: currentColor; }
+.ks-doodle .d-fill2 { fill: currentColor; opacity: .6; }
+.ks-doodle .d-stroke { stroke: currentColor; }
+
+.ks-doodle--red    { color: var(--ks-toy-red); }
+.ks-doodle--orange { color: var(--ks-toy-orange); }
+.ks-doodle--yellow { color: var(--ks-toy-yellow); }
+.ks-doodle--green  { color: var(--ks-toy-green); }
+.ks-doodle--teal   { color: var(--ks-toy-teal); }
+.ks-doodle--blue   { color: var(--ks-toy-blue); }
+.ks-doodle--purple { color: var(--ks-toy-purple); }
+.ks-doodle--pink   { color: var(--ks-toy-pink); }
+
+.ks-char { position: absolute; display: block; pointer-events: none; z-index: 0; }
+.ks-char svg { width: 100%; height: 100%; display: block; overflow: visible; }
+
+/* Character palettes */
+.c-sun { fill: var(--ks-toy-yellow); }
+.c-sun-ray { stroke: var(--ks-toy-yellow); }
+.c-eye { fill: var(--ks-toy-ink); }
+.c-smile { stroke: var(--ks-toy-ink); fill: none; }
+.c-blush { fill: var(--ks-toy-pink); opacity: .65; }
+.c-cloud { fill: var(--ks-white); stroke: var(--ks-pastel-sky); stroke-width: 2; }
+
+.r1 { stroke: var(--ks-toy-red); fill: none; }
+.r2 { stroke: var(--ks-toy-yellow); fill: none; }
+.r3 { stroke: var(--ks-toy-teal); fill: none; }
+
+.b-body { fill: var(--ks-toy-pink); }
+.b-stripe { fill: var(--ks-toy-yellow); opacity: .85; }
+.b-basket { fill: var(--ks-toy-brown); }
+.b-rope { stroke: var(--ks-toy-brown); }
+
+.g-body, .g-head, .g-neck, .g-leg { fill: var(--ks-toy-yellow); }
+.g-snout { fill: var(--ks-toy-orange); opacity: .5; }
+.g-spot { fill: var(--ks-toy-orange); opacity: .8; }
+.g-horn { stroke: var(--ks-toy-brown); }
+.g-horn-tip { fill: var(--ks-toy-brown); }
+
+.d-body { fill: var(--ks-toy-green); }
+.d-spike { fill: var(--ks-toy-teal); }
+.d-leg { fill: var(--ks-toy-green); }
+.d-belly { fill: var(--ks-white); opacity: .45; }
+
+.p-head { fill: var(--ks-white); stroke: var(--ks-border); stroke-width: 2; }
+.p-ear, .p-patch, .p-nose { fill: var(--ks-toy-ink); }
+.p-eye { fill: var(--ks-white); }
+
+.t-car   { fill: var(--ks-toy-red); }
+.t-car2  { fill: var(--ks-toy-blue); }
+.t-cab   { fill: var(--ks-toy-yellow); }
+.t-window{ fill: var(--ks-white); opacity: .9; }
+.t-chimney { fill: var(--ks-toy-red); }
+.t-wheel { fill: var(--ks-toy-ink); opacity: .75; }
+
+.tr-trunk { fill: var(--ks-toy-brown); }
+.tr-leaf  { fill: var(--ks-toy-green); }
+.tr-leaf2 { fill: var(--ks-toy-teal); opacity: .85; }
+
+.f-stem { fill: var(--ks-toy-green); }
+.f-petal { fill: var(--ks-toy-pink); }
+.f-heart { fill: var(--ks-toy-yellow); }
+
+/* Gentle idle motion for the characters */
+.ks-char--bob { animation: ksDrift 7s ease-in-out infinite; }
+.ks-char--bob-slow { animation: ksDrift 11s ease-in-out infinite; }
+
+/* ---------- Hero: organic photo frame ---------- */
+
+.ks-hero__media { position: relative; }
+.ks-hero__media::before {
+  content: '';
+  position: absolute;
+  inset: -14px -14px 18px 22px;
+  background: var(--ks-toy-yellow);
+  border-radius: 58% 42% 46% 54% / 52% 48% 52% 48%;
+  z-index: 0;
+}
+.ks-hero__media img {
+  position: relative;
+  z-index: 1;
+  border-radius: 52% 48% 46% 54% / 48% 52% 48% 52%;
+  box-shadow: none;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* ---------- Wavy heading underline ---------- */
+
+.ks-section-head h2::after,
+.ks-pagehead h1::after {
+  width: 74px;
+  height: 10px;
+  background: none;
+  border-radius: 0;
+  transform: none;
+  -webkit-mask: var(--ks-wave) left center / 74px 10px no-repeat;
+          mask: var(--ks-wave) left center / 74px 10px no-repeat;
+  background-color: var(--ks-toy-teal);
+}
+.ks-pagehead h1::after,
+.ks-section-head--center h2::after {
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+.ks-row6__label::after {
+  content: '';
+  display: block;
+  width: 54px; height: 8px;
+  margin-top: var(--ks-s2);
+  background-color: var(--ks-toy-orange);
+  -webkit-mask: var(--ks-wave) left center / 54px 8px no-repeat;
+          mask: var(--ks-wave) left center / 54px 8px no-repeat;
+}
+
+/* ---------- Colourful wordmark ---------- */
+
+.ks-logo__k { color: var(--ks-toy-teal); }
+.ks-logo__i { color: var(--ks-toy-orange); }
+.ks-logo__d { color: var(--ks-toy-blue); }
+.ks-logo__rest { color: var(--ks-ink); }
+.ks-logo__spark { color: var(--ks-toy-yellow); margin-right: 2px; }
+
+/* ---------- Footer landscape ---------- */
+
+.ks-footer { position: relative; overflow: hidden; }
+.ks-footer::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 190px;
+  background: var(--ks-pastel-mint);
+  border-radius: 50% 50% 0 0 / 34% 34% 0 0;
+  transform: scaleX(1.6);
+  z-index: 0;
+}
+.ks-footer > * { position: relative; z-index: 1; }
+
+/* ---------- Panel characters sit outside the panel edge ---------- */
+
+.ks-section--soft, .ks-guide, .ks-news, .ks-section--mint { position: relative; }
+
+@media (max-width: 1080px) {
+  .ks-char--hide-md { display: none; }
+}
+@media (max-width: 860px) {
+  .ks-char--hide-sm { display: none; }
+  .ks-doodle { transform: scale(.8); }
+}
+@media (max-width: 600px) {
+  .ks-char { display: none; }
+  .ks-scatter { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ks-char--bob, .ks-char--bob-slow { animation: none; }
 }
