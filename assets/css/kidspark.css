@@ -712,3 +712,148 @@ img { max-width: 100%; height: auto; display: block; }
   .ks-card--compact .ks-card__title { font-size: 13px; }
   .ks-card--compact .ks-btn { font-size: 11px; padding: 0 var(--ks-s2); min-height: var(--ks-tap); }
 }
+
+/* ============================================================
+   POLISH LAYER
+   Soft-paper atmosphere: drifting pastel shapes, rounded
+   section joins, and motion that wakes as you scroll.
+   Everything here honours prefers-reduced-motion.
+   ============================================================ */
+
+/* ---------- Ambient pastel wash behind plain sections ---------- */
+
+.ks-atmos { position: relative; overflow: hidden; }
+.ks-atmos > * { position: relative; z-index: 1; }
+.ks-atmos::before,
+.ks-atmos::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: .5;
+  pointer-events: none;
+}
+.ks-atmos::before {
+  width: 420px; height: 420px;
+  top: -140px; left: -120px;
+  background: var(--ks-pastel-sky);
+}
+.ks-atmos::after {
+  width: 360px; height: 360px;
+  bottom: -160px; right: -110px;
+  background: var(--ks-pastel-blush);
+}
+.ks-atmos--warm::before { background: var(--ks-pastel-butter); }
+.ks-atmos--warm::after  { background: var(--ks-pastel-mint); }
+.ks-atmos--cool::before { background: var(--ks-pastel-lilac); }
+.ks-atmos--cool::after  { background: var(--ks-pastel-peach); }
+
+/* ---------- Soft paper-layer joins between coloured sections ---------- */
+
+.ks-section--soft,
+.ks-section--mint {
+  border-radius: var(--ks-s8) var(--ks-s8) 0 0;
+  margin-top: calc(var(--ks-s6) * -1);
+}
+
+/* ---------- Heading accent: a small crayon stroke ---------- */
+
+.ks-section-head h2::after,
+.ks-pagehead h1::after {
+  content: '';
+  display: block;
+  width: 52px;
+  height: 5px;
+  margin-top: var(--ks-s3);
+  border-radius: var(--ks-radius-pill);
+  background: var(--ks-teal);
+  transform: rotate(-1.2deg);
+}
+.ks-section-head--center h2::after,
+.ks-pagehead h1::after { margin-left: auto; margin-right: auto; }
+
+/* ---------- Hero: drifting felt shapes ---------- */
+
+.ks-hero { position: relative; }
+.ks-hero__deco { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.ks-hero__grid { position: relative; z-index: 1; }
+.ks-hero__shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: .55;
+  animation: ksDrift 9s ease-in-out infinite;
+}
+.ks-hero__shape--a { width: 116px; height: 116px; top: 12%;  left: 4%;  background: var(--ks-pastel-lilac); animation-delay: -1s; }
+.ks-hero__shape--b { width: 74px;  height: 74px;  top: 62%;  left: 14%; background: var(--ks-pastel-mint);  animation-delay: -4s; }
+.ks-hero__shape--c { width: 152px; height: 152px; top: 6%;   right: 6%; background: var(--ks-pastel-blush); animation-delay: -2.5s; }
+.ks-hero__shape--d { width: 60px;  height: 60px;  bottom: 12%; right: 22%; background: var(--ks-pastel-sky); animation-delay: -6s; }
+.ks-hero__shape--squircle { border-radius: 36%; }
+
+@keyframes ksDrift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50%      { transform: translate3d(0, -22px, 0) rotate(8deg); }
+}
+
+/* ---------- Cards: image lifts toward you ---------- */
+
+.ks-card__media { overflow: hidden; }
+.ks-card__media img { transition: transform .55s var(--ks-ease); }
+.ks-card:hover .ks-card__media img { transform: scale(1.06); }
+
+/* ---------- Category cards: icon comes alive ---------- */
+
+.ks-cat-card__icon { transition: transform .3s var(--ks-ease); }
+.ks-cat-card:hover .ks-cat-card__icon { transform: rotate(-9deg) scale(1.12); }
+
+/* ---------- Testimonials: an actual quote mark ---------- */
+
+.ks-testimonial { position: relative; }
+.ks-testimonial::before {
+  content: '\201C';
+  position: absolute;
+  top: var(--ks-s2); right: var(--ks-s5);
+  font-family: var(--ks-font-head);
+  font-size: 88px;
+  line-height: 1;
+  color: var(--ks-pastel-mint);
+  pointer-events: none;
+}
+.ks-testimonial > * { position: relative; }
+
+/* ---------- Scroll reveal ---------- */
+
+.ks-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .65s var(--ks-ease), transform .65s var(--ks-ease);
+}
+.ks-reveal.is-in { opacity: 1; transform: none; }
+
+/* Children stagger in rather than arriving as one block. */
+.ks-reveal.is-in > * { animation: ksRise .6s var(--ks-ease) both; }
+.ks-reveal.is-in > *:nth-child(2) { animation-delay: .07s; }
+.ks-reveal.is-in > *:nth-child(3) { animation-delay: .14s; }
+.ks-reveal.is-in > *:nth-child(4) { animation-delay: .21s; }
+.ks-reveal.is-in > *:nth-child(5) { animation-delay: .28s; }
+.ks-reveal.is-in > *:nth-child(6) { animation-delay: .35s; }
+
+@keyframes ksRise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- Reduced motion: keep the atmosphere, drop the movement ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .ks-hero__shape { animation: none; }
+  .ks-reveal { opacity: 1; transform: none; transition: none; }
+  .ks-reveal.is-in > * { animation: none; }
+  .ks-card:hover .ks-card__media img { transform: none; }
+  .ks-cat-card:hover .ks-cat-card__icon { transform: none; }
+}
+
+@media (max-width: 860px) {
+  .ks-hero__shape--a, .ks-hero__shape--b { display: none; }
+  .ks-atmos::before, .ks-atmos::after { filter: blur(50px); opacity: .4; }
+}

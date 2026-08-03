@@ -280,6 +280,72 @@ function initArticle() {
 
 /* ---------- boot ---------- */
 
+/* ---------- scroll reveal ---------- */
+
+/* Content starts hidden so it can animate in, which makes revealing it
+   load-bearing: if it ever fails, the page just looks empty. So before
+   hiding anything, confirm the browser is actually running animation
+   frames. Where it is not (reduced-motion, background/headless contexts),
+   the hiding class is dropped outright and everything is simply visible —
+   no transition is ever started that could freeze half-finished. */
+function initReveal() {
+  const targets = Array.from(document.querySelectorAll('.ks-reveal'));
+  if (!targets.length) return;
+
+  const unhide = () => targets.forEach(el => el.classList.remove('ks-reveal'));
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    unhide();
+    return;
+  }
+
+  let framesRun = false;
+  requestAnimationFrame(() => { framesRun = true; });
+
+  setTimeout(() => {
+    if (!framesRun) { unhide(); return; }
+    startScrollReveal(targets, unhide);
+  }, 150);
+}
+
+function startScrollReveal(targets, unhide) {
+  let pending = targets;
+
+  const inView = (el) => {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
+  };
+
+  const check = () => {
+    pending = pending.filter(el => {
+      if (!inView(el)) return true;
+      el.classList.add('is-in');
+      return false;
+    });
+    if (!pending.length) stop();
+  };
+
+  let last = 0;
+  const onScroll = () => {
+    const now = Date.now();
+    if (now - last < 80) return;
+    last = now;
+    check();
+  };
+
+  function stop() {
+    window.removeEventListener('scroll', onScroll);
+    window.removeEventListener('resize', onScroll);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  check();
+
+  /* Final backstop, in case the scroll path ever stalls. */
+  setTimeout(() => { unhide(); stop(); }, 4000);
+}
+
 function init() {
   initChrome();
   initNewsletter();
@@ -288,6 +354,7 @@ function init() {
   initShop();
   initBlog();
   initContact();
+  initReveal();
 }
 
 if (document.readyState === 'loading') {
