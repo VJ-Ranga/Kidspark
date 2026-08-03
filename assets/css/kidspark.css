@@ -734,9 +734,14 @@ img { max-width: 100%; height: auto; display: block; }
   .ks-row6__cards { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 600px) {
-  .ks-row6__cards { grid-template-columns: repeat(3, 1fr); gap: var(--ks-s2); }
-  .ks-card--compact .ks-card__title { font-size: 13px; }
-  .ks-card--compact .ks-btn { font-size: 11px; padding: 0 var(--ks-s2); min-height: var(--ks-tap); }
+  /* Three across on a phone gives ~125px cards, which forced 11px button
+     text on the primary CTA. Two across keeps both groups visible and the
+     text legible; the desktop row of six is untouched. */
+  .ks-row6__cards { grid-template-columns: repeat(2, 1fr); gap: var(--ks-s3); }
+  .ks-card--compact .ks-card__title { font-size: 15px; }
+  .ks-card--compact .ks-card__blurb { display: none; }
+  .ks-card--compact .ks-badge { font-size: var(--ks-text-tiny); }
+  .ks-card--compact .ks-btn { font-size: var(--ks-text-small); padding: 0 var(--ks-s3); min-height: var(--ks-tap); }
 }
 
 /* ============================================================
@@ -1092,3 +1097,11 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Illustrated PNG stickers sit inside the same slots as the SVG ones. */
 .ks-char img, .ks-doodle img { width: 100%; height: auto; display: block; }
+
+/* Decorations must stay absolutely positioned even inside wrappers whose
+   `> *` rule sets position: relative for stacking. Without this the footer
+   balloon ignored right:4% and rendered off-screen at -76px. */
+.ks-atmos > .ks-char,  .ks-panel > .ks-char,  .ks-footer > .ks-char,
+.ks-atmos > .ks-scatter, .ks-panel > .ks-scatter, .ks-footer > .ks-scatter {
+  position: absolute;
+}
