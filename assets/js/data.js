@@ -24,52 +24,52 @@ export const KS_CATEGORIES = [
 /* TODO(client): replace merchant.url values with real affiliate links,
    and prices with current merchant prices. */
 export const KS_PRODUCTS = [
-  { id:'p1', slug:'wooden-rainbow-stacker', title:'Wooden Rainbow Stacker',
+  { id:'p1', age:'6+ months', slug:'wooden-rainbow-stacker', title:'Wooden Rainbow Stacker',
     image:'assets/images/products/p1-rainbow-stacker.jpg', alt:'Wooden rainbow stacking arches in soft colours',
     blurb:'Open-ended play that grows with them from 1 to 5.', price:24.99, wasPrice:null,
     merchant:{ name:'Amazon', url:'https://www.amazon.com/' }, category:'toys', badge:null, featured:true, deal:false },
 
-  { id:'p2', slug:'board-book-set', title:'First Words Board Book Set',
+  { id:'p2', age:'6+ months', slug:'board-book-set', title:'First Words Board Book Set',
     image:'assets/images/products/p2-board-books.jpg', alt:'Stack of colourful chunky board books',
     blurb:'Ten chunky books built to survive real toddlers.', price:19.50, wasPrice:null,
     merchant:{ name:'Amazon', url:'https://www.amazon.com/' }, category:'books', badge:null, featured:true, deal:false },
 
-  { id:'p3', slug:'magnetic-tile-starter', title:'Magnetic Tile Starter Set',
+  { id:'p3', age:'3+ years', slug:'magnetic-tile-starter', title:'Magnetic Tile Starter Set',
     image:'assets/images/products/p3-magnetic-tiles.jpg', alt:'Translucent coloured magnetic building tiles',
     blurb:'The one toy our testers kept coming back to.', price:39.99, wasPrice:null,
     merchant:{ name:'Daraz', url:'https://www.daraz.lk/' }, category:'stem', badge:null, featured:true, deal:false },
 
-  { id:'p4', slug:'washable-paint-set', title:'Washable Toddler Paint Set',
+  { id:'p4', age:'2+ years', slug:'washable-paint-set', title:'Washable Toddler Paint Set',
     image:'assets/images/products/p4-paint-set.jpg', alt:'Pots of childrens paint with brushes',
     blurb:'Genuinely washable. We checked, on a sofa.', price:14.75, wasPrice:null,
     merchant:{ name:'Amazon', url:'https://www.amazon.com/' }, category:'art', badge:null, featured:true, deal:false },
 
-  { id:'p5', slug:'toddler-balance-bike', title:'Toddler Balance Bike',
+  { id:'p5', age:'2-5 years', slug:'toddler-balance-bike', title:'Toddler Balance Bike',
     image:'assets/images/products/p5-balance-bike.jpg', alt:'Small wooden balance bike for toddlers',
     blurb:'Skips stabilisers entirely. Ages 2 to 5.', price:58.00, wasPrice:72.00,
     merchant:{ name:'Amazon', url:'https://www.amazon.com/' }, category:'outdoor', badge:'Best value', featured:false, deal:true },
 
-  { id:'p6', slug:'suction-bowl-set', title:'Silicone Suction Bowl Set',
+  { id:'p6', age:'6+ months', slug:'suction-bowl-set', title:'Silicone Suction Bowl Set',
     image:'assets/images/products/p6-suction-bowls.jpg', alt:'Silicone toddler bowls in pastel colours',
     blurb:'Stays on the table. Mostly.', price:16.20, wasPrice:21.00,
     merchant:{ name:'Daraz', url:'https://www.daraz.lk/' }, category:'baby', badge:'Best value', featured:false, deal:true },
 
-  { id:'p7', slug:'soft-activity-cube', title:'Soft Cloth Activity Cube',
+  { id:'p7', age:'3+ months', slug:'soft-activity-cube', title:'Soft Cloth Activity Cube',
     image:'assets/images/products/p7-activity-cube.jpg', alt:'Soft fabric baby activity cube',
     blurb:'Quiet, washable, and good for the pram.', price:12.99, wasPrice:17.50,
     merchant:{ name:'Amazon', url:'https://www.amazon.com/' }, category:'baby', badge:'Best value', featured:false, deal:true },
 
-  { id:'p8', slug:'alphabet-puzzle-board', title:'Wooden Alphabet Puzzle Board',
+  { id:'p8', age:'2+ years', slug:'alphabet-puzzle-board', title:'Wooden Alphabet Puzzle Board',
     image:'assets/images/products/p8-alphabet-puzzle.jpg', alt:'Wooden alphabet puzzle with coloured letters',
     blurb:'Letters they can hold while they learn them.', price:18.40, wasPrice:null,
     merchant:{ name:'Amazon', url:'https://www.amazon.com/' }, category:'stem', badge:null, featured:false, deal:false },
 
-  { id:'p9', slug:'counting-bears', title:'Counting Bears & Sorting Cups',
+  { id:'p9', age:'18+ months', slug:'counting-bears', title:'Counting Bears & Sorting Cups',
     image:'assets/images/products/p9-counting-bears.jpg', alt:'Colourful counting bears with sorting cups',
     blurb:'Sorting, counting, and a lifesaver on car journeys.', price:22.00, wasPrice:null,
     merchant:{ name:'Daraz', url:'https://www.daraz.lk/' }, category:'stem', badge:null, featured:false, deal:false },
 
-  { id:'p10', slug:'first-science-kit', title:'My First Science Lab Kit',
+  { id:'p10', age:'4+ years', slug:'first-science-kit', title:'My First Science Lab Kit',
     image:'assets/images/products/p10-science-kit.jpg', alt:'Child doing a simple colour-mixing science experiment',
     blurb:'Six experiments using things you already own.', price:31.90, wasPrice:null,
     merchant:{ name:'Amazon', url:'https://www.amazon.com/' }, category:'stem', badge:null, featured:false, deal:false }

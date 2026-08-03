@@ -1,62 +1,66 @@
-/* ============================================================
-   KidSpark at Home — design system
-   Tokens first. Components below reference tokens only.
-   ============================================================ */
-
 :root {
   /* Brand */
-  --ks-indigo:       #4338CA;
-  --ks-indigo-dark:  #3326A8;
-  --ks-teal:         #128070;
-  --ks-teal-dark:    #0E6457;
+  --ks-indigo:       #4F46E5;
+  --ks-indigo-dark:  #4338CA;
+
+  /* External CTA green. Spec called for #22C55E, but white text on it is
+     2.28:1 — unreadable. Darkened to the nearest shade that clears 4.5:1
+     while keeping the same friendly green read. */
+  --ks-green:        #15803D;
+  --ks-green-dark:   #126334;
+  --ks-green-bright: #22C55E;  /* decorative use only, never behind text */
+
+  /* Teal accent for overlines and squiggles. Spec #0D9488 is 3.74:1 as
+     text; deepened to clear 4.5:1 on white and on the pale panels. */
+  --ks-teal:         #0F766E;
+  --ks-teal-dark:    #0C6B63;
 
   /* Surfaces */
-  --ks-cream:  #FFF6E9;
-  --ks-amber:  #FFE8C2;
-  --ks-mint:   #E3F4F0;
-  --ks-sand:   #F7F5EF;
+  --ks-cream:  #FFFBEB;
+  --ks-amber:  #FEF3C7;
+  --ks-mint:   #ECFDF5;
+  --ks-sand:   #F8FAFC;
   --ks-white:  #FFFFFF;
-  --ks-border: #ECE7DC;
+  --ks-border: #E7E5E4;
 
   /* Category pastels */
-  --ks-pastel-mint:   #DFF3EE;
-  --ks-pastel-lilac:  #EDE7FB;
-  --ks-pastel-peach:  #FFE9D6;
-  --ks-pastel-sky:    #E4EEFB;
-  --ks-pastel-blush:  #FBE4E9;
-  --ks-pastel-butter: #FBF0D2;
+  --ks-pastel-mint:   #DCFCE7;
+  --ks-pastel-lilac:  #EDE9FE;
+  --ks-pastel-peach:  #FFEDD5;
+  --ks-pastel-sky:    #DBEAFE;
+  --ks-pastel-blush:  #FCE7F3;
+  --ks-pastel-butter: #FEF9C3;
 
   /* Text */
-  --ks-ink:   #21263A;
-  --ks-body:  #5B6373;
-  --ks-muted: #616979;
+  --ks-ink:   #1E293B;
+  --ks-body:  #475569;
+  --ks-muted: #556575;  /* spec #64748B failed 4.5:1 on pastels; nearest passing slate */
 
-  /* Functional — not brand, not retail */
-  --ks-error:    #B3261E;  /* form validation only; 4.5:1 on white */
-  --ks-whatsapp: #25D366;  /* WhatsApp's own brand green, fixed by them */
+  /* Functional */
+  --ks-error:    #B3261E;
+  --ks-whatsapp: #22C55E;
 
-  /* Toybox — decorative illustration only. Never used for text or UI,
-     so these are chosen for cheer rather than contrast. */
+  /* Toybox — decorative illustration only. */
   --ks-toy-red:    #F4726B;
   --ks-toy-orange: #F79A4B;
-  --ks-toy-yellow: #FFD166;
-  --ks-toy-green:  #6FCF97;
-  --ks-toy-teal:   #4FC3C7;
-  --ks-toy-blue:   #6BA8F5;
-  --ks-toy-purple: #A98BE8;
-  --ks-toy-pink:   #F58FB8;
+  --ks-toy-yellow: #FCD34D;
+  --ks-toy-green:  #4ADE80;
+  --ks-toy-teal:   #2DD4BF;
+  --ks-toy-blue:   #60A5FA;
+  --ks-toy-purple: #A78BFA;
+  --ks-toy-pink:   #F472B6;
   --ks-toy-brown:  #C98A5E;
-  --ks-toy-ink:    #3B4256;
+  --ks-toy-ink:    #1E293B;
 
   /* Type */
   --ks-font-head: 'Baloo 2', system-ui, sans-serif;
   --ks-font-body: 'Nunito', system-ui, sans-serif;
-  --ks-text-h1:    clamp(34px, 5vw, 54px);
-  --ks-text-h2:    clamp(26px, 3.4vw, 36px);
-  --ks-text-h3:    22px;
-  --ks-text-body:  17px;
-  --ks-text-small: 15px;
-  --ks-text-tiny:  13px;
+  --ks-text-h1:    clamp(36px, 4.6vw, 56px);
+  --ks-text-h2:    clamp(28px, 3.4vw, 40px);
+  --ks-text-h3:    20px;
+  --ks-text-body:  16px;
+  --ks-text-small: 14px;
+  --ks-text-tiny:  12px;
   --ks-leading:    1.7;
 
   /* Space — 4px base */
@@ -65,14 +69,15 @@
   --ks-s9: 88px;
 
   /* Shape */
-  --ks-radius-card: 24px;
-  --ks-radius-img:  18px;
-  --ks-radius-pill: 999px;
+  --ks-radius-card:  24px;
+  --ks-radius-panel: 48px;
+  --ks-radius-cat:   40px;
+  --ks-radius-img:   18px;
+  --ks-radius-pill:  9999px;
 
-  /* Soft, warm-tinted shadows */
-  --ks-shadow-sm: 0 4px 14px rgba(91, 76, 46, 0.07);
-  --ks-shadow-md: 0 10px 28px rgba(91, 76, 46, 0.10);
-  --ks-shadow-lg: 0 18px 44px rgba(91, 76, 46, 0.13);
+  --ks-shadow-sm: 0 4px 14px rgba(30, 41, 59, 0.05);
+  --ks-shadow-md: 0 10px 28px rgba(30, 41, 59, 0.08);
+  --ks-shadow-lg: 0 18px 44px rgba(30, 41, 59, 0.10);
 
   /* Layout */
   --ks-container: 1280px;
@@ -81,8 +86,6 @@
   --ks-tap: 48px;
   --ks-ease: cubic-bezier(.22,.61,.36,1);
 
-  /* Hand-drawn wave used as a mask for heading underlines. Black here is
-     mask alpha, not a colour — the visible colour is set by the rule. */
   --ks-wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 74 10'%3E%3Cpath d='M2 6c5-6 9 4 14-1s9 5 14 0 9 4 14-1 9 5 14 0' fill='none' stroke='%23000' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 
@@ -163,8 +166,8 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* Merchant = outbound affiliate links ONLY. Never used elsewhere. */
-.ks-btn--merchant { background: var(--ks-teal); color: var(--ks-white); }
-.ks-btn--merchant:hover:not(:disabled) { background: var(--ks-teal-dark); }
+.ks-btn--merchant { background: var(--ks-green); color: var(--ks-white); }
+.ks-btn--merchant:hover:not(:disabled) { background: var(--ks-green-dark); }
 
 .ks-btn--block { width: 100%; }
 
@@ -231,10 +234,11 @@ img { max-width: 100%; height: auto; display: block; }
 /* ---------- Category cards ---------- */
 
 .ks-cat-card {
-  display: flex; flex-direction: column; gap: var(--ks-s3);
-  padding: var(--ks-s5);
-  min-height: 148px;
-  border-radius: var(--ks-radius-card);
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: var(--ks-s3);
+  padding: var(--ks-s6) var(--ks-s4);
+  min-height: 168px;
+  border-radius: var(--ks-radius-cat);
   color: var(--ks-ink);
   transition: box-shadow .25s var(--ks-ease), transform .25s var(--ks-ease);
 }
@@ -768,11 +772,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ---------- Soft paper-layer joins between coloured sections ---------- */
 
-.ks-section--soft,
-.ks-section--mint {
-  border-radius: var(--ks-s8) var(--ks-s8) 0 0;
-  margin-top: calc(var(--ks-s6) * -1);
-}
+
 
 /* ---------- Heading accent: a small crayon stroke ---------- */
 
@@ -958,17 +958,17 @@ img { max-width: 100%; height: auto; display: block; }
 .ks-hero__media::before {
   content: '';
   position: absolute;
-  inset: -14px -14px 18px 22px;
+  inset: -18px -18px 10px 26px;
   background: var(--ks-toy-yellow);
-  border-radius: 58% 42% 46% 54% / 52% 48% 52% 48%;
+  border-radius: 50%;
   z-index: 0;
 }
 .ks-hero__media img {
   position: relative;
   z-index: 1;
-  border-radius: 52% 48% 46% 54% / 48% 52% 48% 52%;
+  border-radius: 50%;
   box-shadow: none;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
 }
 
@@ -1042,3 +1042,88 @@ img { max-width: 100%; height: auto; display: block; }
 @media (prefers-reduced-motion: reduce) {
   .ks-char--bob, .ks-char--bob-slow { animation: none; }
 }
+
+/* ============================================================
+   SPEC PASS — pill panels, badges, newsletter form, FAB
+   ============================================================ */
+
+/* Sections themselves are plain; the colour lives in a rounded panel. */
+.ks-section--soft, .ks-section--mint { background: none; }
+
+.ks-panel {
+  position: relative;
+  border-radius: var(--ks-radius-panel);
+  padding: var(--ks-s8);
+  overflow: visible;
+}
+.ks-panel--yellow { background: var(--ks-cream); }
+.ks-panel--mint   { background: var(--ks-mint); }
+.ks-panel > * { position: relative; z-index: 1; }
+
+/* Editor's guide: 33 / 66 split inside a mint panel */
+.ks-guide {
+  grid-template-columns: 1fr 2fr;
+  background: var(--ks-mint);
+  border-radius: var(--ks-radius-panel);
+  padding: var(--ks-s8);
+}
+
+/* Age tag on product cards */
+.ks-badge--age {
+  background: var(--ks-sand);
+  color: var(--ks-muted);
+  font-weight: 700;
+}
+
+/* "Best value" badge sits on the image, pink, per spec */
+.ks-badge--value {
+  background: var(--ks-toy-pink);
+  color: var(--ks-white);
+  box-shadow: var(--ks-shadow-sm);
+}
+
+/* Testimonials: indigo overline + mint quote mark */
+.ks-section--mint .ks-section-head__eyebrow,
+#testimonials .ks-section-head__eyebrow { color: var(--ks-indigo); }
+#testimonials .ks-section-head h2::after { background-color: var(--ks-indigo); }
+.ks-testimonial::before { color: var(--ks-pastel-mint); }
+.ks-testimonial__quote { font-style: italic; color: var(--ks-body); }
+
+/* Newsletter: one white pill holding the input and the button */
+.ks-news { background: var(--ks-cream); border-radius: var(--ks-radius-panel); padding: var(--ks-s8); }
+.ks-news__form {
+  background: var(--ks-white);
+  border-radius: var(--ks-radius-pill);
+  padding: var(--ks-s2);
+  gap: var(--ks-s2);
+  box-shadow: var(--ks-shadow-sm);
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.ks-news__input {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  min-width: 220px;
+  flex: 1;
+}
+.ks-news__input:focus { border: none; outline: none; }
+.ks-news__form .ks-btn { flex: none; }
+.ks-news__note { flex-basis: 100%; padding: 0 var(--ks-s5); }
+
+/* Floating chat button */
+.ks-wa { background: var(--ks-green); box-shadow: 0 6px 20px rgba(21, 128, 61, .35); }
+.ks-wa:hover { background: var(--ks-green-dark); }
+
+@media (max-width: 1080px) {
+  .ks-guide { grid-template-columns: 1fr; }
+}
+@media (max-width: 860px) {
+  .ks-panel, .ks-guide, .ks-news { padding: var(--ks-s6); border-radius: var(--ks-s8); }
+}
+@media (max-width: 600px) {
+  .ks-panel, .ks-guide, .ks-news { padding: var(--ks-s5); border-radius: var(--ks-s6); }
+  .ks-news__form { flex-wrap: wrap; border-radius: var(--ks-radius-panel); }
+  .ks-news__input { width: 100%; min-width: 0; }
+}
+.ks-card__tags { display: flex; flex-wrap: wrap; gap: var(--ks-s2); }

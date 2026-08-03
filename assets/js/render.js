@@ -56,7 +56,10 @@ export function productCard(product, currency) {
         <span class="ks-price__now">${escapeHtml(formatPrice(product.price, currency))}</span>
         ${was}
       </div>
-      <span class="ks-badge ks-badge--merchant">at ${escapeHtml(product.merchant.name)}</span>
+      <div class="ks-card__tags">
+        ${product.age ? `<span class="ks-badge ks-badge--age">${escapeHtml(product.age)}</span>` : ''}
+        <span class="ks-badge ks-badge--merchant">at ${escapeHtml(product.merchant.name)}</span>
+      </div>
       <a class="ks-btn ks-btn--merchant ks-btn--block"
          href="${escapeHtml(product.merchant.url)}"
          target="_blank" rel="sponsored nofollow noopener">

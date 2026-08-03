@@ -4,23 +4,23 @@
 // PASS/FAIL per line; exits non-zero if any pair fails 4.5:1.
 
 const textTokens = {
-  ink:   "#21263A",
-  body:  "#5B6373",
-  muted: "#616979",
+  ink:   "#1E293B",
+  body:  "#475569",
+  muted: "#556575",
 };
 
 const surfaces = {
   white:  "#FFFFFF",
-  cream:  "#FFF6E9",
-  amber:  "#FFE8C2",
-  mint:   "#E3F4F0",
-  sand:   "#F7F5EF",
-  mintPastel:   "#DFF3EE",
-  lilacPastel:  "#EDE7FB",
-  peachPastel:  "#FFE9D6",
-  skyPastel:    "#E4EEFB",
-  blushPastel:  "#FBE4E9",
-  butterPastel: "#FBF0D2",
+  cream:  "#FFFBEB",
+  amber:  "#FEF3C7",
+  mint:   "#ECFDF5",
+  sand:   "#F8FAFC",
+  mintPastel:   "#DCFCE7",
+  lilacPastel:  "#EDE9FE",
+  peachPastel:  "#FFEDD5",
+  skyPastel:    "#DBEAFE",
+  blushPastel:  "#FCE7F3",
+  butterPastel: "#FEF9C3",
 };
 
 const buttonFills = {
