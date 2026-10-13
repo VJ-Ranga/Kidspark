@@ -1,10 +1,10 @@
-import { KS_CURRENCY, KS_CATEGORIES, KS_PRODUCTS, KS_ARTICLES, KS_TESTIMONIALS } from './data.js?v=8';
+import { KS_CURRENCY, KS_CATEGORIES, KS_PRODUCTS, KS_ARTICLES, KS_TESTIMONIALS } from './data.js?v=9';
 import {
   filterProducts, productCard, categoryCard,
   articleCard, testimonialCard, emptyState, escapeHtml
-} from './render.js?v=8';
-import { headerHtml, footerHtml, whatsappHtml } from './layout.js?v=8';
-import { scatter, character } from './decor.js?v=8';
+} from './render.js?v=9';
+import { headerHtml, footerHtml, whatsappHtml } from './layout.js?v=9';
+import { scatter, character } from './decor.js?v=9';
 
 /* ---------- generic mounting ---------- */
 

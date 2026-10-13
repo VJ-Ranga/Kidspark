@@ -13,12 +13,12 @@ const ICON = {
 };
 
 export const KS_CATEGORIES = [
-  { id: 'toys',    name: 'Toys & Games',     tone: 'mint',   count: 24, icon: ICON.toys,    href: '/shop?cat=toys' },
-  { id: 'books',   name: 'Books & Stories',  tone: 'lilac',  count: 18, icon: ICON.books,   href: '/shop?cat=books' },
-  { id: 'stem',    name: 'STEM & Learning',  tone: 'peach',  count: 21, icon: ICON.stem,    href: '/shop?cat=stem' },
-  { id: 'art',     name: 'Art & Craft',      tone: 'sky',    count: 15, icon: ICON.art,     href: '/shop?cat=art' },
-  { id: 'outdoor', name: 'Outdoor & Active', tone: 'blush',  count: 12, icon: ICON.outdoor, href: '/shop?cat=outdoor' },
-  { id: 'baby',    name: 'Baby Essentials',  tone: 'butter', count: 19, icon: ICON.baby,    href: '/shop?cat=baby' }
+  { id: 'toys',    name: 'Toys & Games',     tone: 'mint',   count: 24, icon: ICON.toys,    href: 'shop.html?cat=toys' },
+  { id: 'books',   name: 'Books & Stories',  tone: 'lilac',  count: 18, icon: ICON.books,   href: 'shop.html?cat=books' },
+  { id: 'stem',    name: 'STEM & Learning',  tone: 'peach',  count: 21, icon: ICON.stem,    href: 'shop.html?cat=stem' },
+  { id: 'art',     name: 'Art & Craft',      tone: 'sky',    count: 15, icon: ICON.art,     href: 'shop.html?cat=art' },
+  { id: 'outdoor', name: 'Outdoor & Active', tone: 'blush',  count: 12, icon: ICON.outdoor, href: 'shop.html?cat=outdoor' },
+  { id: 'baby',    name: 'Baby Essentials',  tone: 'butter', count: 19, icon: ICON.baby,    href: 'shop.html?cat=baby' }
 ];
 
 /* TODO(client): replace merchant.url values with real affiliate links,
