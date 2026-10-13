@@ -4,8 +4,8 @@
 // PASS/FAIL per line; exits non-zero if any pair fails 4.5:1.
 
 const textTokens = {
-  ink:   "#1E293B",
-  body:  "#475569",
+  ink:   "#1E2147",
+  body:  "#5F6272",
   muted: "#556575",
 };
 
@@ -24,7 +24,7 @@ const surfaces = {
 };
 
 const buttonFills = {
-  indigo:     "#4338CA",
+  indigo:     "#3F2FA8",
   indigoDark: "#3326A8",
   teal:       "#128070",
   tealDark:   "#0E6457",

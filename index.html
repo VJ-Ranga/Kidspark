@@ -7,9 +7,9 @@
 <meta name="description" content="Hand-picked toys, books and learning kits for babies and toddlers, chosen and tested by parents. Plus practical play and routine guides.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/kidspark.css?v=7">
-<script type="module" src="assets/js/app.js?v=7"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/kidspark.css?v=8">
+<script type="module" src="assets/js/app.js?v=8"></script>
 </head>
 <body>
 <header class="ks-header"></header>
@@ -17,35 +17,43 @@
 <main id="main">
 
   <section class="ks-hero">
-    <div class="ks-hero__deco" aria-hidden="true">
-      <span class="ks-hero__shape ks-hero__shape--a"></span>
-      <span class="ks-hero__shape ks-hero__shape--b ks-hero__shape--squircle"></span>
-      <span class="ks-hero__shape ks-hero__shape--c"></span>
-      <span class="ks-hero__shape ks-hero__shape--d ks-hero__shape--squircle"></span>
+    <div class="ks-hero__doodles" aria-hidden="true">
+      <img class="ks-hero__star ks-hero__star--1" src="assets/images/decor/star-purple.png" alt="" width="82" height="76">
+      <img class="ks-hero__star ks-hero__star--2" src="assets/images/decor/star-teal.png" alt="" width="78" height="72">
+      <img class="ks-hero__star ks-hero__star--3" src="assets/images/decor/star-teal.png" alt="" width="78" height="72">
+      <img class="ks-hero__star ks-hero__star--4" src="assets/images/decor/star-teal.png" alt="" width="78" height="72">
+      <img class="ks-hero__star ks-hero__star--5" src="assets/images/decor/star-yellow.png" alt="" width="90" height="85">
+      <img class="ks-hero__star ks-hero__star--6" src="assets/images/decor/star-purple.png" alt="" width="82" height="76">
     </div>
     <div class="ks-wrap ks-hero__grid">
       <div class="ks-hero__copy">
         <p class="ks-hero__eyebrow">Chosen by parents, tested by toddlers</p>
-        <h1>Toys and books<br><span class="ks-hero__accent">worth the space<br>they take up.</span></h1>
+        <h1>Toys and books<br><span class="ks-hero__accent">worth the space</span><br>they take up.</h1>
         <p class="ks-hero__sub">
           We try things at home with real children, then recommend the small
           number that survive. No sponsored lists, no filler.
         </p>
         <div class="ks-hero__btns">
-          <a class="ks-btn ks-btn--primary" href="#picks">Browse our picks</a>
-          <a class="ks-btn ks-btn--outline" href="#picks">Read the guides</a>
+          <a class="ks-btn ks-btn--primary" href="#picks">Browse our picks <span aria-hidden="true">↗</span></a>
+          <a class="ks-btn ks-btn--outline" href="blog.html">Read the guides</a>
         </div>
         <p class="ks-hero__disclosure">
-          Some links earn us a small commission. It never changes what we recommend
-          or what you pay. <a href="disclosure.html">How this works</a>.
+          Some links earn us a small commission.<br>
+          It never changes what we recommend or what you pay.
+          <a href="disclosure.html">Here's how.</a>
         </p>
       </div>
       <div class="ks-hero__media">
-        <img src="assets/images/hero/hero-play.jpg"
-             srcset="assets/images/hero/hero-play-400.jpg 400w, assets/images/hero/hero-play.jpg 1200w"
-             sizes="(max-width: 860px) 100vw, 600px"
-             alt="A mother and her toddler playing together with wooden toys on a rug"
-             width="1200" height="800" fetchpriority="high">
+        <div class="ks-hero__photo">
+          <img src="assets/images/hero/hero-play.jpg"
+               srcset="assets/images/hero/hero-play-400.jpg 400w, assets/images/hero/hero-play.jpg 1200w"
+               sizes="(max-width: 860px) 84vw, 548px"
+               alt="A mother lifting her baby while her young daughter reaches up to them at home"
+               width="1200" height="800" fetchpriority="high">
+        </div>
+        <img class="ks-hero__sticker ks-hero__sticker--sun" src="assets/images/decor/sun.png" alt="" aria-hidden="true" width="200" height="202">
+        <img class="ks-hero__sticker ks-hero__sticker--rainbow" src="assets/images/decor/rainbow.png" alt="" aria-hidden="true" width="260" height="195">
+        <img class="ks-hero__sticker ks-hero__sticker--cloud" src="assets/images/decor/cloud.png" alt="" aria-hidden="true" width="240" height="214">
       </div>
     </div>
   </section>

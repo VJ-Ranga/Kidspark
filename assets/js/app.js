@@ -1,10 +1,10 @@
-import { KS_CURRENCY, KS_CATEGORIES, KS_PRODUCTS, KS_ARTICLES, KS_TESTIMONIALS } from './data.js?v=7';
+import { KS_CURRENCY, KS_CATEGORIES, KS_PRODUCTS, KS_ARTICLES, KS_TESTIMONIALS } from './data.js?v=8';
 import {
   filterProducts, productCard, categoryCard,
   articleCard, testimonialCard, emptyState, escapeHtml
-} from './render.js?v=7';
-import { headerHtml, footerHtml, whatsappHtml } from './layout.js?v=7';
-import { scatter, character } from './decor.js?v=7';
+} from './render.js?v=8';
+import { headerHtml, footerHtml, whatsappHtml } from './layout.js?v=8';
+import { scatter, character } from './decor.js?v=8';
 
 /* ---------- generic mounting ---------- */
 
@@ -337,7 +337,6 @@ function decorate(hostSelector, scatterKey, chars) {
 }
 
 function initDecor() {
-  decorate('.ks-hero', 'hero', CHARS.hero);
   decorate('#categories', 'categories');
   decorate('#picks', 'picks');
   decorate('#deals', 'deals', [...CHARS.deals, ...CHARS.deals_balloon]);
